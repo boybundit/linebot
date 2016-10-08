@@ -4,7 +4,7 @@
   "description": "Node.js SDK for the LINE Messaging API",
   "main": "index.js",
   "scripts": {
-    "start": "examples/echo.js",
+    "start": "node examples/echo.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
