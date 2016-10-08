@@ -14,8 +14,27 @@ https://devdocs.line.me
 
 ## Installation
 
-```
+```bash
 $ npm install linebot --save
+```
+
+## Usage
+
+```js
+var linebot = require('linebot');
+var bot = linebot({
+	channelSecret: process.env.CHANNEL_SECRET,
+	channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN
+});
+
+bot.on('message', function (event) {
+	bot.reply(event, event.message)
+	.then(function (data) {
+		//...
+	});
+});
+
+bot.listen('/linewebhook', 3000);
 ```
 
 ## License
