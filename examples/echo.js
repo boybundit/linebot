@@ -3,7 +3,7 @@
 var linebot = require('../index.js');
 var bot = linebot({
 	channelSecret: process.env.CHANNEL_SECRET,
-	channelAccessToken: process.env.ACCESS_TOKEN
+	channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN
 });
 
 bot.on('message', function (event) {
