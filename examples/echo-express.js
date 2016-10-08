@@ -14,20 +14,15 @@ var bot = linebot({
 });
 
 bot.on('message', function (event) {
-	console.log(event);
+	//console.log(event);
 	bot.reply(event, event.message.text).then(function (data) {
-		console.log('OK', data);
+		//console.log('OK', data);
 	}).catch(function(error) {
-		console.log('ERROR', error);
+		//console.log('ERROR', error);
 	});
 });
 
-app.get('/', function (req, res) {
-	res.send('Hello World!');
-});
-
 app.post('/linewebhook', function (req, res) {
-	console.log('hook');
 	bot.parse(req.body, req.get('X-Line-Signature'));
 	res.json({});
 });

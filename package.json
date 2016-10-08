@@ -4,7 +4,7 @@
   "description": "Node.js SDK for the LINE Messaging API",
   "main": "index.js",
   "scripts": {
-    "start": "node examples/echo.js",
+    "start": "node examples/echo-ecpress.js",
     "test": "mocha"
   },
   "repository": {
