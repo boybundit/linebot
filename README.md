@@ -41,7 +41,7 @@ bot.listen('/linewebhook', 3000);
   
 [npm-image]: https://img.shields.io/npm/v/linebot.svg
 [npm-url]: https://npmjs.org/package/linebot
-[dependencies-image]: https://david-dm.org/runnables/line-bot-sdk-nodejs.svg
-[dependencies-url]: https://david-dm.org/runnables/line-bot-sdk-nodejs
+[dependencies-image]: https://david-dm.org/boybundit/linebot.svg
+[dependencies-url]: https://david-dm.org/boybundit/linebot
 [downloads-image]: https://img.shields.io/npm/dm/linebot.svg
 [downloads-url]: https://npmjs.org/package/linebot
