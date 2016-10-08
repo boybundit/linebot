@@ -20,5 +20,10 @@
   "bugs": {
     "url": "https://github.com/boybundit/linebot/issues"
   },
-  "homepage": "https://github.com/boybundit/linebot#readme"
+  "homepage": "https://github.com/boybundit/linebot#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "node-fetch": "^1.6.3"
+  }
 }
