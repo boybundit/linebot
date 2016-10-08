@@ -1,0 +1,23 @@
+{
+  "name": "linebot",
+  "version": "0.0.1",
+  "description": "Node.js SDK for the LINE Messaging API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/boybundit/linebot.git"
+  },
+  "keywords": [
+    "LINE",
+    "messaging"
+  ],
+  "author": "Bundit Jitkongchuen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/boybundit/linebot/issues"
+  },
+  "homepage": "https://github.com/boybundit/linebot#readme"
+}
