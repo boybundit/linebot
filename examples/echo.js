@@ -7,7 +7,7 @@ var bot = linebot({
 });
 
 bot.on('message', function (event) {
-	bot.reply(event, event.message.text).then(function (data) {
+	bot.reply(event, event.message).then(function (data) {
 		//console.log('OK', data);
 	}).catch(function(error) {
 		//console.log('ERROR', error);

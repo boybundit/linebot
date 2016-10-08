@@ -1,4 +1,3 @@
-/*jslint node: true, es5: true*/
 'use strict';
 
 var express = require('express');
@@ -15,7 +14,7 @@ var bot = linebot({
 
 bot.on('message', function (event) {
 	//console.log(event);
-	bot.reply(event, event.message.text).then(function (data) {
+	bot.reply(event, event.message).then(function (data) {
 		//console.log('OK', data);
 	}).catch(function(error) {
 		//console.log('ERROR', error);
