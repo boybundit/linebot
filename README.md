@@ -81,6 +81,10 @@ bot.on('join',     function (event) { });
 bot.on('leave',    function (event) { });
 bot.on('postback', function (event) { });
 ```
+## LineBot.push(to, message)
+
+Send push message.
+`message` can be a string, a [Send message][send-message-url] object, or an array of [Send message][send-message-url] objects.
 
 ## Event.reply(message)
 
