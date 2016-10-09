@@ -15,7 +15,7 @@ bot.on('message', function (event) {
 			console.log('ERROR', error);
 		});
 	} else if (event.message.type === 'image') {
-		bot.reply(event, 'Nice picture!');
+		//bot.reply(event, 'Nice picture!');
 		bot.reply(event, {
 			type: 'image',
 			originalContentUrl: 'https://d.line-scdn.net/stf/line-lp/family/en-US/190X190_line_me.png',
