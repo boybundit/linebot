@@ -28,7 +28,7 @@ bot.on('message', function (event) {
 			break;
 		case 'image':
 			try {
-				event.content().then(function (data) {
+				event.message.content().then(function (data) {
 					console.log(data);
 					console.log(data.toString('base64'));
 					return bot.reply(event, data.toString('base64'));
