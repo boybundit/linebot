@@ -30,7 +30,8 @@ bot.on('message', function (event) {
 			event.message.content().then(function (data) {
 				try {
 					var s = data.toString('base64');
-					return bot.reply(event, 'Nice picture! ' + s);
+					s = s.substring(0, 20);
+					return bot.reply(event, 'Nice picture!' + s);
 				} catch (err) {
 					return bot.reply(event, err.toString());
 				}
