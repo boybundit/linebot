@@ -9,8 +9,8 @@ var bot = linebot({
 });
 
 bot.on('message', function (event) {
-	console.log(JSON.stringify(event));
-	return bot.reply(event, JSON.stringify(event));
+	//console.log(JSON.stringify(event));
+	//return bot.reply(event, JSON.stringify(event));
 	switch (event.message.type) {
 		case 'text':
 			if (event.message.text === 'image') {
@@ -27,7 +27,12 @@ bot.on('message', function (event) {
 			});
 			break;
 		case 'image':
-			return bot.reply(event, 'Nice picture!');
+			event.content().then(function (data) {
+				console.log(data);
+				console.log(data.toString('base64'));
+				return bot.reply(event, data.toString('base64'));
+			});
+			//return bot.reply(event, 'Nice picture!');
 			break;
 		case 'video':
 			return bot.reply(event, 'Nice movie!');
