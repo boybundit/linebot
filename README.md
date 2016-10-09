@@ -140,11 +140,24 @@ Get user profile information of the sender.
 
 This is a shorthand for `LineBot.getUserProfile(event.source.userId);`
 
+```js
+event.source.profile().then(function (profile) {
+	event.reply('Hello ' + profile.displayName);
+});
+```
 ## Event.message.content()
 
 Get image, video, and audio data sent by users.
 
+Return a Buffer object of binary data.
+
 This is a shorthand for `LineBot.getMessageContent(event.message.messageId);`
+
+```js
+event.message.content().then(function (content) {
+	console.log(content.toString('base64'));
+});
+```
 
 # License
 
