@@ -19,7 +19,7 @@ var bot = linebot({
 });
 
 app.post(path, parser, (req, res) => {
-	if (!this.validate(req.rawBody, req.get('X-Line-Signature'))) {
+	if (!this.verify(req.rawBody, req.get('X-Line-Signature'))) {
 		return res.sendStatus(400);
 	}
 	this.parse(req.body);
