@@ -94,6 +94,11 @@ event.reply('Hello, world');
 
 event.reply({ type: 'text', text: 'Hello, world' });
 
+event.reply([
+	{ type: 'text', text: 'Hello, world 1' },
+	{ type: 'text', text: 'Hello, world 2' }
+]);
+
 event.reply({
 	type: 'image',
 	originalContentUrl: 'https://example.com/original.jpg',
