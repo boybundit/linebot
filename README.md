@@ -59,7 +59,17 @@ and accept POST request callback on the specified `webHookPath`.
 
 Reply with message.
 `message` can be a string, a [Message](https://devdocs.line.me/en/#send-message-object) object, or an array of Message objects
+```js
+event.reply('Hello, world');
 
+event.reply({ type: 'text', text: 'Hello, world' });
+
+event.reply({
+	type: 'image',
+	originalContentUrl: 'https://example.com/original.jpg',
+	'previewImageUrl": "https://example.com/preview.jpg'
+});
+```
 
 # License
 
