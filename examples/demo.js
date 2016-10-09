@@ -9,8 +9,6 @@ var bot = linebot({
 });
 
 bot.on('message', function (event) {
-	//console.log(JSON.stringify(event));
-	//return bot.reply(event, JSON.stringify(event));
 	switch (event.message.type) {
 		case 'text':
 			switch (event.message.text) {
@@ -44,23 +42,23 @@ bot.on('message', function (event) {
 			});
 			break;
 		case 'video':
-			return event.reply('Nice movie!');
+			event.reply('Nice movie!');
 			break;
 		case 'audio':
-			return event.reply('Nice song!');
+			event.reply('Nice song!');
 			break;
 		case 'location':
-			return event.reply('That\'s a good location!');
+			event.reply('That\'s a good location!');
 			break;
 		case 'sticker':
-			return event.reply({
+			event.reply({
 				type: 'sticker',
 				packageId: 1,
 				stickerId: 1
 			});
 			break;
 		default:
-			return event.reply('Unknow message: ' + JSON.stringify(event));
+			event.reply('Unknow message: ' + JSON.stringify(event));
 			break;
 	}
 });

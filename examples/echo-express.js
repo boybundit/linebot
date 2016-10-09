@@ -27,10 +27,10 @@ app.post(path, parser, (req, res) => {
 });
 
 bot.on('message', function (event) {
-	bot.reply(event, event.message).then(function (data) {
-		//console.log('OK', data);
+	event.reply(event.message.text).then(function (data) {
+		// success
 	}).catch(function(error) {
-		//console.log('ERROR', error);
+		// error
 	});
 });
 
