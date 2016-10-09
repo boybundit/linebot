@@ -81,17 +81,6 @@ bot.on('join',     function (event) { });
 bot.on('leave',    function (event) { });
 bot.on('postback', function (event) { });
 ```
-## LineBot.getUserProfile(userId)
-
-Get user profile information of the sender.
-
-Return a [Promise][promise-url] object from [`node-fetch`][node-fetch-url] module.
-
-## LineBot.getMessageContent(messageId)
-
-Get image, video, and audio data sent by users.
-
-Return a [Promise][promise-url] object from [`node-fetch`][node-fetch-url] module.
 
 ## Event.reply(message)
 
@@ -99,6 +88,8 @@ Respond to the event.
 `message` can be a string, a [Send message][send-message-url] object, or an array of [Send message][send-message-url] objects.
 
 Return a [Promise][promise-url] object from [`node-fetch`][node-fetch-url] module.
+
+This is a shorthand for `LineBot.reply(event.replyToken, message);`
 
 ```js
 event.reply('Hello, world');
