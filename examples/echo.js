@@ -8,6 +8,7 @@ var bot = linebot({
 });
 
 bot.on('message', function (event) {
+	return bot.reply(event, JSON.stringify(event));
 	switch (event.message.type) {
 		case 'text':
 			if (event.message.text === 'image') {
