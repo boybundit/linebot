@@ -55,7 +55,7 @@ var bot = linebot({
 
 ## LineBot.listen(webHookPath, port, callback)
 
-Start [Express.js](http://expressjs.com/) web server on the specified `port`,
+Start [Express.js][express-url] web server on the specified `port`,
 and accept POST request callback on the specified `webHookPath`.
 
 This method is provided for convenience.
@@ -72,7 +72,7 @@ Process incoming webhook request, and raise an event.
 
 ## LineBot.on(eventType, eventHandler)
 
-Raised when a [Webhook event](https://devdocs.line.me/en/#webhook-event-object) is received.
+Raised when a [Webhook event][webhook-event-url] is received.
 ```js
 bot.on('message',  function (event) { });
 bot.on('follow',   function (event) { });
@@ -84,9 +84,9 @@ bot.on('postback', function (event) { });
 ## Event.reply(message)
 
 Respond to the event.
-`message` can be a string, a [Send message](https://devdocs.line.me/en/#send-message-object) object, or an array of [Send message](https://devdocs.line.me/en/#send-message-object) objects.
+`message` can be a string, a [Send message][send-message-url] object, or an array of [Send message][send-message-url] objects.
 
-Return a [Promise](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise) object from [`node-fetch`](https://github.com/bitinn/node-fetch) module.
+Return a [Promise][promise-url] object from [`node-fetch`][node-fetch-url] module.
 
 ```js
 event.reply('Hello, world');
@@ -103,6 +103,7 @@ event.reply({
 ## Event.source.profile()
 
 Get user profile information of the sender.
+
 Return a [Promise][promise-url] object from [`node-fetch`][node-fetch-url] module.
 
 This is a shorthand for LineBot.getUserProfile(event.source.userId);
@@ -110,6 +111,7 @@ This is a shorthand for LineBot.getUserProfile(event.source.userId);
 ## Event.message.content()
 
 Get image, video, and audio data sent by users.
+
 Return a [Promise][promise-url] object from [`node-fetch`][node-fetch-url] module.
 
 This is a shorthand for LineBot.getMessageContent(event.message.messageId);
@@ -118,6 +120,9 @@ This is a shorthand for LineBot.getMessageContent(event.message.messageId);
 
   [MIT](LICENSE)
 
+[express-url]: http://expressjs.com
+[webhook-event-url]: https://devdocs.line.me/en/#webhook-event-object
+[send-message-url]: https://devdocs.line.me/en/#send-message-object
 [promise-url]: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [node-fetch-url]: https://github.com/bitinn/node-fetch
 [npm-image]: https://img.shields.io/npm/v/linebot.svg
