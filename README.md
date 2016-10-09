@@ -64,7 +64,7 @@ See `examples/echo-express.js` for example.
 
 ## LineBot.verify(rawBody, signature)
 
-Verify `X-Line-Signature` header
+Verify `X-Line-Signature` header.
 
 ## LineBot.parse(body)
 
@@ -149,7 +149,7 @@ event.source.profile().then(function (profile) {
 
 Get image, video, and audio data sent by users.
 
-Return a Buffer object of binary data.
+Return a [Buffer][buffer-url] object of binary data.
 
 This is a shorthand for `LineBot.getMessageContent(event.message.messageId);`
 
@@ -168,6 +168,8 @@ event.message.content().then(function (content) {
 [send-message-url]: https://devdocs.line.me/en/#send-message-object
 [promise-url]: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [node-fetch-url]: https://github.com/bitinn/node-fetch
+[buffer-url]: https://nodejs.org/api/buffer.html
+
 [npm-image]: https://img.shields.io/npm/v/linebot.svg
 [npm-url]: https://npmjs.org/package/linebot
 [dependencies-image]: https://david-dm.org/boybundit/linebot.svg
