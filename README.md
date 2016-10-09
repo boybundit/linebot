@@ -1,41 +1,65 @@
 # linebot
 
-LINE Messaging API for Node.js
-
   [![NPM Version][npm-image]][npm-url]
   [![NPM Dependencies][dependencies-image]][dependencies-url]
   [![NPM Downloads][downloads-image]][downloads-url]
-  
-## About LINE Messaging API
+
+LINE Messaging API for Node.js
+
+# About LINE Messaging API
 
 Please refer to the official API documents for details.
 
 https://devdocs.line.me
 
-## Installation
+# Installation
 
 ```bash
 $ npm install linebot --save
 ```
 
-## Usage
+# Usage
 
 ```js
 var linebot = require('linebot');
 
 var bot = linebot({
+	channelId: [CHANNEL_ID],
 	channelSecret: [CHANNEL_SECRET],
 	channelAccessToken: [CHANNEL_ACCESS_TOKEN]
 });
 
 bot.on('message', function (event) {
-	bot.reply(event, event.message);
+	event.reply(event.message.text);
 });
 
 bot.listen('/linewebhook', 3000);
 ```
 
-## License
+# API
+
+## linebot(options)
+```js
+{
+	verify: true // Verify `X-Line-Signature` header
+}
+```
+
+## LineBot.listen(path, port, callback)
+
+Start [Express.js](http://expressjs.com/) web server on the specified `port`,
+and accept POST request on the specified `path`.
+
+## LineBot.on(eventType, eventObject)
+
+
+
+## Event.reply(message)
+
+message can be string, mesaage object, or array of message objects
+
+
+# License
 
   [MIT](LICENSE)
   
