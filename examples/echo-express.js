@@ -5,11 +5,25 @@ var bodyParser = require('body-parser');
 var linebot = require('../index.js');
 
 var app = express();
-app.use(bodyParser.json());
+
+var parser = bodyParser.json({
+	verify: function(req, res, buf, encoding) {
+		req.rawBody = buf.toString(encoding);
+	}
+});
 
 var bot = linebot({
+	channelId: process.env.CHANNEL_ID,
 	channelSecret: process.env.CHANNEL_SECRET,
-	channelAccessToken: process.env.ACCESS_TOKEN
+	channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN
+});
+
+app.post(path, parser, (req, res) => {
+	if (!this.validate(req.rawBody, req.get('X-Line-Signature'))) {
+		return res.sendStatus(400);
+	}
+	this.parse(req.body);
+	return res.json({});
 });
 
 bot.on('message', function (event) {
@@ -20,11 +34,6 @@ bot.on('message', function (event) {
 	});
 });
 
-app.post('/linewebhook', function (req, res) {
-	bot.parse(req.body, req.get('X-Line-Signature'));
-	res.json({});
-});
-
 app.listen(process.env.PORT || 80, function () {
-	console.log('Running');
+	console.log('LineBot is running.');
 });

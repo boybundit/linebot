@@ -8,11 +8,15 @@ var bot = linebot({
 });
 
 bot.on('message', function (event) {
-	bot.reply(event, event.message).then(function (data) {
-		//console.log('OK', data);
-	}).catch(function(error) {
-		//console.log('ERROR', error);
-	});
+	if (event.message.type === 'text') {
+		bot.reply(event, event.message.text).then(function (data) {
+			console.log('OK', data);
+		}).catch(function(error) {
+			console.log('ERROR', error);
+		});
+	} else if (event.message.type === 'image') {
+		return bot.reply(event, 'Nice picture!');
+	}
 });
 
 bot.listen('/linewebhook', process.env.PORT || 80, function () {
