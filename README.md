@@ -86,6 +86,11 @@ bot.on('postback', function (event) { });
 Send push message.
 `message` can be a string, a [Send message][send-message-url] object, or an array of [Send message][send-message-url] objects.
 
+## LineBot.leaveGroup(groupId)
+## LineBot.leaveRoom(roomId)
+
+Leave a group or room.
+	
 ## Event.reply(message)
 
 Respond to the event.
