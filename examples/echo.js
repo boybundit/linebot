@@ -1,6 +1,6 @@
 'use strict';
 
-var linebot = require('../index.js');
+var linebot = require('linebot');
 var bot = linebot({
 	channelId: process.env.CHANNEL_ID,
 	channelSecret: process.env.CHANNEL_SECRET,

@@ -1,8 +1,14 @@
 'use strict';
 
+var linebot = require('linebot');
 var express = require('express');
 var bodyParser = require('body-parser');
-var linebot = require('../index.js');
+
+var bot = linebot({
+	channelId: process.env.CHANNEL_ID,
+	channelSecret: process.env.CHANNEL_SECRET,
+	channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN
+});
 
 var app = express();
 
@@ -10,12 +16,6 @@ var parser = bodyParser.json({
 	verify: function(req, res, buf, encoding) {
 		req.rawBody = buf.toString(encoding);
 	}
-});
-
-var bot = linebot({
-	channelId: process.env.CHANNEL_ID,
-	channelSecret: process.env.CHANNEL_SECRET,
-	channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN
 });
 
 app.post(path, parser, (req, res) => {
