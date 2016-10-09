@@ -84,7 +84,7 @@ bot.on('postback', function (event) { });
 ## Event.reply(message)
 
 Respond to the event.
-`message` can be a string, a [Send message](https://devdocs.line.me/en/#send-message-object) object, or an array of Send message objects
+`message` can be a string, a [Send message](https://devdocs.line.me/en/#send-message-object) object, or an array of [Send message](https://devdocs.line.me/en/#send-message-object) objects.
 
 Return a [Promise](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise) object from [`node-fetch`](https://github.com/bitinn/node-fetch) module.
 
@@ -99,6 +99,20 @@ event.reply({
 	previewImageUrl: 'https://example.com/preview.jpg'
 });
 ```
+
+## Event.source.profile()
+
+Get user profile information of the sender.
+Return a [Promise](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise) object from [`node-fetch`](https://github.com/bitinn/node-fetch) module.
+
+This is a shorthand for LineBot.getUserProfile(event.source.userId);
+
+## Event.message.content()
+
+Get image, video, and audio data sent by users.
+Return a [Promise](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise) object from [`node-fetch`](https://github.com/bitinn/node-fetch) module.
+
+This is a shorthand for LineBot.getMessageContent(event.message.messageId);
 
 # License
 
