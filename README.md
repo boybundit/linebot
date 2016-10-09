@@ -81,6 +81,17 @@ bot.on('join',     function (event) { });
 bot.on('leave',    function (event) { });
 bot.on('postback', function (event) { });
 ```
+## LineBot.getUserProfile(userId)
+
+Get user profile information of the sender.
+
+Return a [Promise][promise-url] object from [`node-fetch`][node-fetch-url] module.
+
+## LineBot.getMessageContent(messageId)
+
+Get image, video, and audio data sent by users.
+
+Return a [Promise][promise-url] object from [`node-fetch`][node-fetch-url] module.
 
 ## Event.reply(message)
 
@@ -136,15 +147,11 @@ event.reply({
 
 Get user profile information of the sender.
 
-Return a [Promise][promise-url] object from [`node-fetch`][node-fetch-url] module.
-
 This is a shorthand for `LineBot.getUserProfile(event.source.userId);`
 
 ## Event.message.content()
 
 Get image, video, and audio data sent by users.
-
-Return a [Promise][promise-url] object from [`node-fetch`][node-fetch-url] module.
 
 This is a shorthand for `LineBot.getMessageContent(event.message.messageId);`
 
