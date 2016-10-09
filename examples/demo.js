@@ -14,7 +14,7 @@ bot.on('message', function (event) {
 			switch (event.message.text) {
 				case 'Who am i':
 					event.source.profile().then(function (profile) {
-						return event.reply('Hello ' + profile.displayName);
+						return event.reply('Hello ' + profile.displayName + ' ' + profile.userId);
 					});
 					break;
 				case 'Show picture':
