@@ -28,13 +28,8 @@ bot.on('message', function (event) {
 			break;
 		case 'image':
 			event.message.content().then(function (data) {
-				try {
-					var s = data.toString('base64');
-					s = s.substring(0, 20);
-					return bot.reply(event, 'Nice picture!' + s);
-				} catch (err) {
-					return bot.reply(event, err.toString());
-				}
+				var s = data.toString('base64').substring(0, 30);
+				return bot.reply(event, 'Nice picture! ' + s);
 			}).catch(function (err) {
 				return bot.reply(event, err.toString());
 			});
