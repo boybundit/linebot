@@ -28,9 +28,9 @@ app.post(path, parser, (req, res) => {
 
 bot.on('message', function (event) {
 	bot.reply(event, event.message).then(function (data) {
-		console.log('OK', data);
+		//console.log('OK', data);
 	}).catch(function(error) {
-		console.log('ERROR', error);
+		//console.log('ERROR', error);
 	});
 });
 

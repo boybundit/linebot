@@ -4,10 +4,12 @@ var linebot = require('../index.js');
 var bot = linebot({
 	channelId: process.env.CHANNEL_ID,
 	channelSecret: process.env.CHANNEL_SECRET,
-	channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN
+	channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN,
+	verify: false // default=true
 });
 
 bot.on('message', function (event) {
+	console.log(JSON.stringify(event));
 	return bot.reply(event, JSON.stringify(event));
 	switch (event.message.type) {
 		case 'text':
@@ -19,9 +21,9 @@ bot.on('message', function (event) {
 				});
 			}
 			bot.reply(event, event.message.text).then(function (data) {
-				console.log('OK', data);
+				//console.log('OK', data);
 			}).catch(function(error) {
-				console.log('ERROR', error);
+				//console.log('ERROR', error);
 			});
 			break;
 		case 'image':
