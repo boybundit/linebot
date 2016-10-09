@@ -43,7 +43,7 @@ bot.on('message', function (event) {
 			});
 			break;
 		default:
-			return bot.reply(event, 'Unknow message type: ' + event.message.type);
+			return bot.reply(event, 'Unknow message: ' + JSON.stringify(event));
 			break;
 	}
 });
