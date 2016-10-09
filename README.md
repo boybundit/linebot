@@ -70,7 +70,7 @@ Verify `X-Line-Signature` header
 
 Process incoming webhook request, and raise an event.
 
-## LineBot.on(eventType, eventObject)
+## LineBot.on(eventType, eventHandler)
 
 Raised when a [Webhook event](https://devdocs.line.me/en/#webhook-event-object) is received.
 ```js
@@ -96,7 +96,7 @@ event.reply({ type: 'text', text: 'Hello, world' });
 event.reply({
 	type: 'image',
 	originalContentUrl: 'https://example.com/original.jpg',
-	previewImageUrl: "https://example.com/preview.jpg'
+	previewImageUrl: 'https://example.com/preview.jpg'
 });
 ```
 
