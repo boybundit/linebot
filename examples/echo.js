@@ -28,7 +28,12 @@ bot.on('message', function (event) {
 			break;
 		case 'image':
 			event.message.content().then(function (data) {
-				return bot.reply(event, 'Nice picture! ' + data.toString('base64'));
+				try {
+					var s = data.toString('base64');
+					return bot.reply(event, 'Nice picture! ' + s);
+				} catch (err) {
+					return bot.reply(event, err.toString());
+				}
 			}).catch(function (err) {
 				return bot.reply(event, err.toString());
 			});
