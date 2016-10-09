@@ -32,6 +32,8 @@ bot.on('message', function (event) {
 					console.log(data);
 					console.log(data.toString('base64'));
 					return bot.reply(event, 'Nice picture!');
+				}).catch(function (err) {
+					return bot.reply(event, err.toString());
 				});
 			} catch (err) {
 				return bot.reply(event, err.toString());
