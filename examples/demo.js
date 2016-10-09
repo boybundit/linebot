@@ -27,6 +27,25 @@ bot.on('message', function (event) {
 				case 'Push':
 					bot.push('U6350b7606935db981705282747c82ee1', 'Hey!');
 					break;
+				case 'Confirm':
+					event.reply({
+						type: 'template',
+						altText: 'this is a confirm template',
+						template: {
+							type: 'confirm',
+							text: 'Are you sure?',
+							actions: [{
+								type: 'message',
+								label: 'Yes',
+								text: 'yes'
+							}, {
+								type: 'message',
+								label: 'No',
+								text: 'no'
+							}]
+						}
+					});
+					break;
 				default:
 					event.reply(event.message.text).then(function (data) {
 						//console.log('OK', data);
