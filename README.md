@@ -30,7 +30,11 @@ var bot = linebot({
 });
 
 bot.on('message', function (event) {
-	event.reply(event.message.text);
+	event.reply(event.message.text).then(function (data) {
+		// success
+	}).catch(function(error) {
+		// error
+	});
 });
 
 bot.listen('/linewebhook', 3000);
@@ -53,12 +57,22 @@ and accept POST request callback on the specified `webHookPath`.
 
 ## LineBot.on(eventType, eventObject)
 
-
-
+Raised when an [event](https://devdocs.line.me/en/#webhook-event-object) is received.
+```js
+bot.on('message',  function (event) { });
+bot.on('follow',   function (event) { });
+bot.on('unfollow', function (event) { });
+bot.on('join',     function (event) { });
+bot.on('leave',    function (event) { });
+bot.on('postback', function (event) { });
+```
 ## Event.reply(message)
 
 Reply with message.
 `message` can be a string, a [Message](https://devdocs.line.me/en/#send-message-object) object, or an array of Message objects
+
+Return a [Promise](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise) object from [`node-fetch`](https://github.com/bitinn/node-fetch) module.
+
 ```js
 event.reply('Hello, world');
 
