@@ -24,6 +24,9 @@ bot.on('message', function (event) {
 						previewImageUrl: 'https://d.line-scdn.net/stf/line-lp/family/en-US/190X190_line_me.png'
 					});
 					break;
+				case 'Push':
+					bot.push('U6350b7606935db981705282747c82ee1', 'Hey!');
+					break;
 				default:
 					event.reply(event.message.text).then(function (data) {
 						//console.log('OK', data);
@@ -65,5 +68,4 @@ bot.on('message', function (event) {
 
 bot.listen('/linewebhook', process.env.PORT || 80, function () {
 	console.log('LineBot is running.');
-	bot.push('U6350b7606935db981705282747c82ee1', 'Hey!');
 });
