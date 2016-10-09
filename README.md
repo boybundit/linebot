@@ -92,7 +92,11 @@ Return a [Promise][promise-url] object from [`node-fetch`][node-fetch-url] modul
 This is a shorthand for `LineBot.reply(event.replyToken, message);`
 
 ```js
-event.reply('Hello, world');
+event.reply('Hello, world').then(function (data) {
+	// success
+}).catch(function(error) {
+	// error
+});
 
 event.reply({ type: 'text', text: 'Hello, world' });
 
@@ -143,19 +147,21 @@ This is a shorthand for `LineBot.getUserProfile(event.source.userId);`
 ```js
 event.source.profile().then(function (profile) {
 	event.reply('Hello ' + profile.displayName);
+}).catch(function(error) {
+	// error
 });
 ```
 ## Event.message.content()
 
-Get image, video, and audio data sent by users.
-
-Return a [Buffer][buffer-url] object of binary data.
+Get image, video, and audio data sent by users as a [Buffer][buffer-url] object.
 
 This is a shorthand for `LineBot.getMessageContent(event.message.messageId);`
 
 ```js
 event.message.content().then(function (content) {
 	console.log(content.toString('base64'));
+}).catch(function(error) {
+	// error
 });
 ```
 
