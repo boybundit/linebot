@@ -13,46 +13,54 @@ bot.on('message', function (event) {
 	//return bot.reply(event, JSON.stringify(event));
 	switch (event.message.type) {
 		case 'text':
-			if (event.message.text === 'image') {
-				return bot.reply(event, {
-					type: 'image',
-					originalContentUrl: 'https://d.line-scdn.net/stf/line-lp/family/en-US/190X190_line_me.png',
-					previewImageUrl: 'https://d.line-scdn.net/stf/line-lp/family/en-US/190X190_line_me.png'
-				});
+			switch (event.message.text) {
+				case 'who am i':
+					event.source.profile().then(function (profile) {
+						return event.reply('Hello ' + profile.displayName);
+					});
+					break;
+				case 'show picture':
+					event.reply({
+						type: 'image',
+						originalContentUrl: 'https://d.line-scdn.net/stf/line-lp/family/en-US/190X190_line_me.png',
+						previewImageUrl: 'https://d.line-scdn.net/stf/line-lp/family/en-US/190X190_line_me.png'
+					});
+					break;
+				default:
+					event.reply(event.message.text).then(function (data) {
+						//console.log('OK', data);
+					}).catch(function(error) {
+						//console.log('ERROR', error);
+					});
+					break;
 			}
-			bot.reply(event, event.message.text).then(function (data) {
-				//console.log('OK', data);
-			}).catch(function(error) {
-				//console.log('ERROR', error);
-			});
 			break;
 		case 'image':
 			event.message.content().then(function (data) {
-			//bot.getMessageContent(event.message.id).then(function (data) {
 				var s = data.toString('base64').substring(0, 30);
-				return bot.reply(event, 'Nice picture! ' + s);
+				return event.reply('Nice picture! ' + s);
 			}).catch(function (err) {
-				return bot.reply(event, err.toString());
+				return event.reply(err.toString());
 			});
 			break;
 		case 'video':
-			return bot.reply(event, 'Nice movie!');
+			return event.reply('Nice movie!');
 			break;
 		case 'audio':
-			return bot.reply(event, 'Nice song!');
+			return event.reply('Nice song!');
 			break;
 		case 'location':
-			return bot.reply(event, 'That\'s a good location!');
+			return event.reply('That\'s a good location!');
 			break;
 		case 'sticker':
-			return bot.reply(event, {
+			return event.reply({
 				type: 'sticker',
 				packageId: 1,
 				stickerId: 1
 			});
 			break;
 		default:
-			return bot.reply(event, 'Unknow message: ' + JSON.stringify(event));
+			return event.reply('Unknow message: ' + JSON.stringify(event));
 			break;
 	}
 });
