@@ -103,21 +103,23 @@ event.reply({
 ## Event.source.profile()
 
 Get user profile information of the sender.
-Return a [Promise](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise) object from [`node-fetch`](https://github.com/bitinn/node-fetch) module.
+Return a [Promise][promise-url] object from [`node-fetch`][node-fetch-url] module.
 
 This is a shorthand for LineBot.getUserProfile(event.source.userId);
 
 ## Event.message.content()
 
 Get image, video, and audio data sent by users.
-Return a [Promise](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise) object from [`node-fetch`](https://github.com/bitinn/node-fetch) module.
+Return a [Promise][promise-url] object from [`node-fetch`][node-fetch-url] module.
 
 This is a shorthand for LineBot.getMessageContent(event.message.messageId);
 
 # License
 
   [MIT](LICENSE)
-  
+
+[promise-url]: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise
+[node-fetch-url]: https://github.com/bitinn/node-fetch
 [npm-image]: https://img.shields.io/npm/v/linebot.svg
 [npm-url]: https://npmjs.org/package/linebot
 [dependencies-image]: https://david-dm.org/boybundit/linebot.svg
