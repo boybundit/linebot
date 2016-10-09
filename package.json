@@ -13,7 +13,10 @@
   },
   "keywords": [
     "LINE",
-    "messaging"
+    "Messaging",
+    "API",
+    "chat",
+    "bot"
   ],
   "author": "Bundit Jitkongchuen",
   "license": "MIT",
