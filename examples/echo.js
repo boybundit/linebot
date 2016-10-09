@@ -28,6 +28,7 @@ bot.on('message', function (event) {
 			break;
 		case 'image':
 			event.message.content().then(function (data) {
+			//bot.getMessageContent(event.message.id).then(function (data) {
 				var s = data.toString('base64').substring(0, 30);
 				return bot.reply(event, 'Nice picture! ' + s);
 			}).catch(function (err) {
