@@ -42,12 +42,15 @@ bot.listen('/linewebhook', 3000);
 
 # API
 
-## linebot(options)
-Create LineBot object.
+## linebot(config)
+Create LineBot instance with specified configuration.
 ```js
-{
-	verify: true // Verify `X-Line-Signature` header
-}
+var bot = linebot({
+    channelId: [CHANNEL_ID],
+    channelSecret: [CHANNEL_SECRET],
+    channelAccessToken: [CHANNEL_ACCESS_TOKEN],
+	verify: true // Verify `X-Line-Signature` header.
+});
 ```
 
 ## LineBot.listen(webHookPath, port, callback)
@@ -55,9 +58,21 @@ Create LineBot object.
 Start [Express.js](http://expressjs.com/) web server on the specified `port`,
 and accept POST request callback on the specified `webHookPath`.
 
+This method is provided for convenience.
+You can write you own server and use `verify` and `parse` methods to process webhook events.
+See `examples/echo-express.js` for example.
+
+## LineBot.verify(rawBody, signature)
+
+Verify `X-Line-Signature` header
+
+## LineBot.parse(body)
+
+Process incoming webhook request, and raise an event.
+
 ## LineBot.on(eventType, eventObject)
 
-Raised when an [event](https://devdocs.line.me/en/#webhook-event-object) is received.
+Raised when a [Webhook event](https://devdocs.line.me/en/#webhook-event-object) is received.
 ```js
 bot.on('message',  function (event) { });
 bot.on('follow',   function (event) { });
@@ -68,8 +83,8 @@ bot.on('postback', function (event) { });
 ```
 ## Event.reply(message)
 
-Reply with message.
-`message` can be a string, a [Message](https://devdocs.line.me/en/#send-message-object) object, or an array of Message objects
+Respond to the event.
+`message` can be a string, a [Send message](https://devdocs.line.me/en/#send-message-object) object, or an array of Send message objects
 
 Return a [Promise](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise) object from [`node-fetch`](https://github.com/bitinn/node-fetch) module.
 
@@ -81,7 +96,7 @@ event.reply({ type: 'text', text: 'Hello, world' });
 event.reply({
 	type: 'image',
 	originalContentUrl: 'https://example.com/original.jpg',
-	'previewImageUrl": "https://example.com/preview.jpg'
+	previewImageUrl: "https://example.com/preview.jpg'
 });
 ```
 
