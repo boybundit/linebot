@@ -27,11 +27,15 @@ bot.on('message', function (event) {
 			});
 			break;
 		case 'image':
-			event.content().then(function (data) {
-				console.log(data);
-				console.log(data.toString('base64'));
-				return bot.reply(event, data.toString('base64'));
-			});
+			try {
+				event.content().then(function (data) {
+					console.log(data);
+					console.log(data.toString('base64'));
+					return bot.reply(event, data.toString('base64'));
+				});
+			} catch (err) {
+				return bot.reply(event, err.toString());
+			}
 			//return bot.reply(event, 'Nice picture!');
 			break;
 		case 'video':
