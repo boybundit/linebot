@@ -39,16 +39,17 @@ bot.listen('/linewebhook', 3000);
 # API
 
 ## linebot(options)
+Create LineBot object.
 ```js
 {
 	verify: true // Verify `X-Line-Signature` header
 }
 ```
 
-## LineBot.listen(path, port, callback)
+## LineBot.listen(webHookPath, port, callback)
 
 Start [Express.js](http://expressjs.com/) web server on the specified `port`,
-and accept POST request on the specified `path`.
+and accept POST request callback on the specified `webHookPath`.
 
 ## LineBot.on(eventType, eventObject)
 
@@ -56,7 +57,8 @@ and accept POST request on the specified `path`.
 
 ## Event.reply(message)
 
-message can be string, mesaage object, or array of message objects
+Reply with message.
+`message` can be a string, a [Message](https://devdocs.line.me/en/#send-message-object) object, or an array of Message objects
 
 
 # License
