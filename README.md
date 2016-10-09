@@ -228,7 +228,7 @@ event.reply({
 			actions: [{
 				type: 'postback',
 				label: 'Buy',
-				data: "action=buy&itemid=222'
+				data: 'action=buy&itemid=222'
 			}, {
 				type: 'postback',
 				label: 'Add to cart',
