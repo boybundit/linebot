@@ -81,6 +81,7 @@ bot.on('join',     function (event) { });
 bot.on('leave',    function (event) { });
 bot.on('postback', function (event) { });
 ```
+
 ## Event.reply(message)
 
 Respond to the event.
@@ -98,6 +99,32 @@ event.reply({
 	originalContentUrl: 'https://example.com/original.jpg',
 	previewImageUrl: 'https://example.com/preview.jpg'
 });
+
+event.reply({
+	type: 'video',
+	originalContentUrl: 'https://example.com/original.mp4',
+	previewImageUrl: 'https://example.com/preview.jpg'
+});
+
+event.reply({
+	type: 'audio',
+	originalContentUrl: 'https://example.com/original.m4a',
+	duration: 240000
+});
+
+event.reply({
+	type: 'location',
+    title: 'my location',
+    address: '〒150-0002 東京都渋谷区渋谷２丁目２１−１',
+    latitude: 35.65910807942215,
+    longitude: 139.70372892916203
+});
+
+event.reply({
+	type: 'sticker',
+	packageId: '1',
+	stickerId: '1'
+});
 ```
 
 ## Event.source.profile()
@@ -106,7 +133,7 @@ Get user profile information of the sender.
 
 Return a [Promise][promise-url] object from [`node-fetch`][node-fetch-url] module.
 
-This is a shorthand for LineBot.getUserProfile(event.source.userId);
+This is a shorthand for `LineBot.getUserProfile(event.source.userId);`
 
 ## Event.message.content()
 
@@ -114,7 +141,7 @@ Get image, video, and audio data sent by users.
 
 Return a [Promise][promise-url] object from [`node-fetch`][node-fetch-url] module.
 
-This is a shorthand for LineBot.getMessageContent(event.message.messageId);
+This is a shorthand for `LineBot.getMessageContent(event.message.messageId);`
 
 # License
 
