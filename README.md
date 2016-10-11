@@ -3,7 +3,8 @@
   [![NPM Version][npm-image]][npm-url]
   [![NPM Dependencies][dependencies-image]][dependencies-url]
   [![NPM Downloads][downloads-image]][downloads-url]
-
+  [![Build][travis-image]][travis-url]
+  
 LINE Messaging API for Node.js
 
 # About LINE Messaging API
@@ -295,3 +296,5 @@ event.message.content().then(function (content) {
 [dependencies-url]: https://david-dm.org/boybundit/linebot
 [downloads-image]: https://img.shields.io/npm/dm/linebot.svg
 [downloads-url]: https://npmjs.org/package/linebot
+[travis-image]: https://img.shields.io/travis/boybundit/linebot/master.svg
+[travis-url]: https://travis-ci.org/boybundit/linebot
