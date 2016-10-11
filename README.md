@@ -1,10 +1,10 @@
 # linebot
 
   [![NPM Version][npm-image]][npm-url]
-  [![NPM Dependencies][dependencies-image]][dependencies-url]
   [![NPM Downloads][downloads-image]][downloads-url]
+  [![NPM Dependencies][dependencies-image]][dependencies-url]
   [![Build][travis-image]][travis-url]
-  
+
 LINE Messaging API for Node.js
 
 # About LINE Messaging API
