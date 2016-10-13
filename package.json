@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "Node.js SDK for the LINE Messaging API",
   "main": "index.js",
+  "files": ["index.js", "lib/**"],
   "scripts": {
     "start": "node examples/demo.js",
     "test": "mocha"
