@@ -10,7 +10,6 @@
 		"mocha": true
 	},
 	"rules": {
-    	// disabled - disagree with airbnb
     	"linebreak-style": [0, "windows"],
 		"no-tabs": [0],
 		"indent": [2, "tab", { "SwitchCase": 1 }],
