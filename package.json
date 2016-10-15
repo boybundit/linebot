@@ -1,9 +1,12 @@
 {
   "name": "linebot",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Node.js SDK for the LINE Messaging API",
   "main": "index.js",
-  "files": ["index.js", "lib/**"],
+  "files": [
+    "index.js",
+    "lib/**"
+  ],
   "scripts": {
     "start": "node examples/demo.js",
     "pretest": "eslint index.js lib/**/*.js test/**/*.js examples/**/*.js",
