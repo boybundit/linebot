@@ -4,5 +4,21 @@
         "react",
         "jsx-a11y",
         "import"
-    ]
+    ],
+	"env": {
+		"node": true,
+		"mocha": true
+	},
+	"rules": {
+    	// disabled - disagree with airbnb
+    	"linebreak-style": [1, "windows"],
+		"no-tabs": [0],
+		"indent": [2, "tab", { "SwitchCase": 1 }],
+		"comma-dangle": [0],
+		"prefer-arrow-callback": [0],
+		"func-names": [0],
+		"prefer-template": [0],
+		"no-param-reassign": [2, { "props": false }],
+		"object-shorthand" : [0]
+	}
 }
