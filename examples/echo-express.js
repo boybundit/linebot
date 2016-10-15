@@ -16,11 +16,11 @@ const parser = bodyParser.json({
 	}
 });
 
-app.post('/linewebhook', parser, (req, res) => {
-	if (!this.verify(req.rawBody, req.get('X-Line-Signature'))) {
+app.post('/linewebhook', parser, function (req, res) {
+	if (!bot.verify(req.rawBody, req.get('X-Line-Signature'))) {
 		return res.sendStatus(400);
 	}
-	this.parse(req.body);
+	bot.parse(req.body);
 	return res.json({});
 });
 
