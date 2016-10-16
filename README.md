@@ -105,7 +105,9 @@ Send push message.
 `to` is a userId which can be saved from `event.source.userId`
 when added as a friend (follow event), or during the chat (message event).
 
-`message` can be a string, a [Send message][send-message-url] object, or an array of [Send message][send-message-url] objects.
+`message` can be a string, an array of string,
+a [Send message][send-message-url] object, 
+or an array of [Send message][send-message-url] objects.
 
 ## LineBot.leaveGroup(groupId)
 
@@ -118,7 +120,10 @@ Leave a room.
 ## Event.reply(message)
 
 Respond to the event.
-`message` can be a string, a [Send message][send-message-url] object, or an array of [Send message][send-message-url] objects.
+
+`message` can be a string, an array of string,
+a [Send message][send-message-url] object, 
+or an array of [Send message][send-message-url] objects.
 
 Return a [Promise][promise-url] object from [`node-fetch`][node-fetch-url] module.
 
