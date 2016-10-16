@@ -28,8 +28,8 @@ bot.on('message', function (event) {
 						type: 'location',
 						title: 'LINE Plus Corporation',
 						address: '1 Empire tower, Sathorn, Bangkok 10120, Thailand',
-						latitude: 13.7199067,
-						longitude: 100.5225255
+						latitude: 13.7202068,
+						longitude: 100.5298698
 					});
 					break;
 				case 'Push':
@@ -53,6 +53,9 @@ bot.on('message', function (event) {
 							}]
 						}
 					});
+					break;
+				case 'Multiple':
+					return event.reply(['Line 1', 'Line 2', 'Line 3', 'Line 4', 'Line 5']);
 					break;
 				default:
 					event.reply(event.message.text).then(function (data) {
