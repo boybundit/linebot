@@ -41,6 +41,14 @@ bot.on('message', function (event) {
 bot.listen('/linewebhook', 3000);
 ```
 
+### Using with your own [Express.js][express-url] server
+```js
+const app = express();
+const linebotParser = bot.parser();
+app.post('/linewebhook', linebotParser);
+app.listen(3000);
+```
+
 # API
 
 ## linebot(config)
@@ -50,7 +58,7 @@ var bot = linebot({
     channelId: [CHANNEL_ID],
     channelSecret: [CHANNEL_SECRET],
     channelAccessToken: [CHANNEL_ACCESS_TOKEN],
-	verify: true // Verify `X-Line-Signature` header.
+	verify: true // Verify 'X-Line-Signature' header (default=true)
 });
 ```
 
@@ -61,7 +69,14 @@ and accept POST request callback on the specified `webHookPath`.
 
 This method is provided for convenience.
 You can write you own server and use `verify` and `parse` methods to process webhook events.
-See `examples/echo-express.js` for example usage with [Express.js][express-url].
+See `examples/echo-express-long.js` for example.
+
+## LineBot.parser()
+
+Create [Express.js][express-url] middleware to parse the request.
+
+The parser assumes that the request body has never been parsed by any body parser before,
+so it must be placed BEFORE any generic body parser e.g. `app.use(bodyParser.json());`
 
 ## LineBot.verify(rawBody, signature)
 
