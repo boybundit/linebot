@@ -11,16 +11,25 @@ bot.on('message', function (event) {
 	switch (event.message.type) {
 		case 'text':
 			switch (event.message.text) {
-				case 'Who am i':
+				case 'Me':
 					event.source.profile().then(function (profile) {
 						return event.reply('Hello ' + profile.displayName + ' ' + profile.userId);
 					});
 					break;
-				case 'Show picture':
+				case 'Picture':
 					event.reply({
 						type: 'image',
 						originalContentUrl: 'https://d.line-scdn.net/stf/line-lp/family/en-US/190X190_line_me.png',
 						previewImageUrl: 'https://d.line-scdn.net/stf/line-lp/family/en-US/190X190_line_me.png'
+					});
+					break;
+				case 'Location':
+					event.reply({
+						type: 'location',
+						title: 'my location',
+						address: '〒150-0002 東京都渋谷区渋谷２丁目２１−１',
+						latitude: 35.65910807942215,
+						longitude: 139.70372892916203
 					});
 					break;
 				case 'Push':
