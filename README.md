@@ -41,13 +41,13 @@ bot.on('message', function (event) {
 bot.listen('/linewebhook', 3000);
 ```
 
-## Using with your own Express.js server
+### Using with your own [Express.js][express-url] server
 ```js
 const app = express();
 const linebotParser = bot.parser();
 app.post('/linewebhook', linebotParser);
 app.listen(3000);
-``
+```
 
 # API
 
