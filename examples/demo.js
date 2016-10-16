@@ -26,10 +26,10 @@ bot.on('message', function (event) {
 				case 'Location':
 					event.reply({
 						type: 'location',
-						title: 'my location',
-						address: '〒150-0002 東京都渋谷区渋谷２丁目２１−１',
-						latitude: 35.65910807942215,
-						longitude: 139.70372892916203
+						title: 'LINE Plus Corporation, Thailand',
+						address: '1 Empire tower, 41st floor, River wing west, South Sathorn road, Yannawa, Sathorn, Bangkok 10120, Thailand',
+						latitude: 13.7199067,
+						longitude: 100.5225255
 					});
 					break;
 				case 'Push':
