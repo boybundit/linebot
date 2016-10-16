@@ -56,12 +56,12 @@ var bot = linebot({
 
 ## LineBot.listen(webHookPath, port, callback)
 
-Start [Express.js][express-url] web server on the specified `port`,
+Start built-in http server on the specified `port`,
 and accept POST request callback on the specified `webHookPath`.
 
 This method is provided for convenience.
 You can write you own server and use `verify` and `parse` methods to process webhook events.
-See `examples/echo-express.js` for example.
+See `examples/echo-express.js` for example usage with [Express.js][express-url].
 
 ## LineBot.verify(rawBody, signature)
 
