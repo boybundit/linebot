@@ -10,8 +10,8 @@ LINE Messaging API for Node.js
 # About LINE Messaging API
 
 Please refer to the official API documents for details.
-
-https://devdocs.line.me
+- https://developers.line.me/messaging-api/overview
+- https://devdocs.line.me/en/#messaging-api
 
 # Installation
 
