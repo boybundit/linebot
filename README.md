@@ -25,9 +25,9 @@ $ npm install linebot --save
 var linebot = require('linebot');
 
 var bot = linebot({
-	channelId: [CHANNEL_ID],
-	channelSecret: [CHANNEL_SECRET],
-	channelAccessToken: [CHANNEL_ACCESS_TOKEN]
+	channelId: CHANNEL_ID,
+	channelSecret: CHANNEL_SECRET,
+	channelAccessToken: CHANNEL_ACCESS_TOKEN
 });
 
 bot.on('message', function (event) {
@@ -55,9 +55,9 @@ app.listen(3000);
 Create LineBot instance with specified configuration.
 ```js
 var bot = linebot({
-    channelId: [CHANNEL_ID],
-    channelSecret: [CHANNEL_SECRET],
-    channelAccessToken: [CHANNEL_ACCESS_TOKEN],
+	channelId: CHANNEL_ID,
+	channelSecret: CHANNEL_SECRET,
+	channelAccessToken: CHANNEL_ACCESS_TOKEN,
 	verify: true // Verify 'X-Line-Signature' header (default=true)
 });
 ```
