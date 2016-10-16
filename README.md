@@ -96,6 +96,7 @@ bot.on('unfollow', function (event) { });
 bot.on('join',     function (event) { });
 bot.on('leave',    function (event) { });
 bot.on('postback', function (event) { });
+bot.on('beacon',   function (event) { });
 ```
 ## LineBot.push(to, message)
 
