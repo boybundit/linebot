@@ -33,7 +33,7 @@ bot.on('message', function (event) {
 					});
 					break;
 				case 'Push':
-					bot.push('U6350b7606935db981705282747c82ee1', ['Hey!', 'สวัสดี \xF0\x9F\x98\x81']);
+					bot.push('U6350b7606935db981705282747c82ee1', ['Hey!', 'สวัสดี ' + String.fromCharCode(0xD83D, 0xDE01)]);
 					break;
 				case 'Confirm':
 					event.reply({
