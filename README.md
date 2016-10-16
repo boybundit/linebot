@@ -71,6 +71,13 @@ This method is provided for convenience.
 You can write you own server and use `verify` and `parse` methods to process webhook events.
 See `examples/echo-express-long.js` for example.
 
+## LineBot.parser()
+
+Create [Express.js][express-url] middleware to parse the request.
+
+It assumes that request body has never been parsed by any body parser before,
+so it must be placed BEFORE any generic body parser e.g. `app.use(bodyParser.json());`
+
 ## LineBot.verify(rawBody, signature)
 
 Verify `X-Line-Signature` header.
