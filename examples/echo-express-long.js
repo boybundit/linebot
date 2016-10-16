@@ -1,5 +1,6 @@
 const linebot = require('../index.js');
 const express = require('express');
+const bodyParser = require('body-parser');
 
 const bot = linebot({
 	channelId: process.env.CHANNEL_ID,
@@ -9,9 +10,19 @@ const bot = linebot({
 
 const app = express();
 
-const linebotParser = bot.parser();
+const parser = bodyParser.json({
+	verify: function (req, res, buf, encoding) {
+		req.rawBody = buf.toString(encoding);
+	}
+});
 
-app.post('/linewebhook', linebotParser);
+app.post('/linewebhook', parser, function (req, res) {
+	if (!bot.verify(req.rawBody, req.get('X-Line-Signature'))) {
+		return res.sendStatus(400);
+	}
+	bot.parse(req.body);
+	return res.json({});
+});
 
 bot.on('message', function (event) {
 	event.reply(event.message.text).then(function (data) {
