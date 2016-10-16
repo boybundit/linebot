@@ -51,19 +51,62 @@ describe('linebot', function () {
 			assert.equal(Promise, res.constructor);
 		});
 	});
+	describe('#push()', function () {
+		it('should return a promise.', function () {
+			const res = bot.push('to', 'message');
+			assert.equal(Promise, res.constructor);
+		});
+	});
+	describe('#getUserProfile()', function () {
+		it('should return a promise.', function () {
+			const res = bot.getUserProfile('userId');
+			assert.equal(Promise, res.constructor);
+		});
+	});
+	describe('#getMessageContent()', function () {
+		it('should return a promise.', function () {
+			const res = bot.getMessageContent('messageId');
+			assert.equal(Promise, res.constructor);
+		});
+	});
+	describe('#leaveGroup()', function () {
+		it('should return a promise.', function () {
+			const res = bot.leaveGroup('groupId');
+			assert.equal(Promise, res.constructor);
+		});
+	});
+	describe('#leaveRoom()', function () {
+		it('should return a promise.', function () {
+			const res = bot.leaveRoom('roomId');
+			assert.equal(Promise, res.constructor);
+		});
+	});
 	describe('#get()', function () {
-		it('should have a get method that returns a promise.', function () {
+		it('should return a promise.', function () {
 			const res = bot.get('a/random/path');
 			assert.equal(Promise, res.constructor);
 		});
 	});
 	describe('#post()', function () {
-		it('should have a post method that returns a promise.', function () {
+		it('should return a promise.', function () {
 			const body = {
 				head: 'This is the head of the body. Do you not like it?'
 			};
 			const res = bot.post('a/random/path', body);
 			assert.equal(Promise, res.constructor);
+		});
+	});
+	describe('#parser()', function () {
+		it('should return a function that expects 2 arguments.', function () {
+			const parser = bot.parser();
+			assert.equal(typeof parser, 'function');
+			assert.equal(parser.length, 2);
+		});
+	});
+	describe('#listen()', function () {
+		it('should expect 3 arguments.', function () {
+			assert.equal(typeof bot.listen, 'function');
+			assert.equal(bot.listen.length, 3);
 		});
 	});
 });
