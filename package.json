@@ -9,9 +9,9 @@
   ],
   "scripts": {
     "start": "node examples/demo.js",
-    "pretest": "eslint index.js lib/**/*.js test/**/*.js examples/**/*.js",
+    "pretest": "eslint index.js lib/**/*.js test/**/*.js",
     "test": "mocha",
-    "lint": "eslint index.js lib/**/*.js test/**/*.js examples/**/*.js"
+    "lint": "eslint index.js lib/**/*.js test/**/*.js"
   },
   "repository": {
     "type": "git",
@@ -32,7 +32,6 @@
   "homepage": "https://github.com/boybundit/linebot#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
-    "express": "^4.14.0",
     "node-fetch": "^1.6.3"
   },
   "devDependencies": {
