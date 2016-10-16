@@ -75,7 +75,7 @@ See `examples/echo-express-long.js` for example.
 
 Create [Express.js][express-url] middleware to parse the request.
 
-It assumes that request body has never been parsed by any body parser before,
+The parser assumes that the request body has never been parsed by any body parser before,
 so it must be placed BEFORE any generic body parser e.g. `app.use(bodyParser.json());`
 
 ## LineBot.verify(rawBody, signature)
