@@ -33,7 +33,7 @@ bot.on('message', function (event) {
 					});
 					break;
 				case 'Push':
-					bot.push('U6350b7606935db981705282747c82ee1', ['Hey!', 'สวัสดี :)']);
+					bot.push('U6350b7606935db981705282747c82ee1', ['Hey!', 'สวัสดี '\u1F609']);
 					break;
 				case 'Confirm':
 					event.reply({
