@@ -122,7 +122,7 @@ This is a shorthand for `LineBot.reply(event.replyToken, message);`
 ```js
 event.reply('Hello, world').then(function (data) {
 	// success
-}).catch(function(error) {
+}).catch(function (error) {
 	// error
 });
 
@@ -276,7 +276,7 @@ This is a shorthand for `LineBot.getUserProfile(event.source.userId);`
 ```js
 event.source.profile().then(function (profile) {
 	event.reply('Hello ' + profile.displayName);
-}).catch(function(error) {
+}).catch(function (error) {
 	// error
 });
 ```
@@ -289,7 +289,7 @@ This is a shorthand for `LineBot.getMessageContent(event.message.messageId);`
 ```js
 event.message.content().then(function (content) {
 	console.log(content.toString('base64'));
-}).catch(function(error) {
+}).catch(function (error) {
 	// error
 });
 ```
