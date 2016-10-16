@@ -26,8 +26,8 @@ bot.on('message', function (event) {
 				case 'Location':
 					event.reply({
 						type: 'location',
-						title: 'LINE Plus Corporation, Thailand',
-						address: '1 Empire tower, 41st floor, River wing west, South Sathorn road, Yannawa, Sathorn, Bangkok 10120, Thailand',
+						title: 'LINE Plus Corporation',
+						address: '1 Empire tower, Sathorn, Bangkok 10120, Thailand',
 						latitude: 13.7199067,
 						longitude: 100.5225255
 					});
