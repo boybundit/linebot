@@ -81,9 +81,7 @@ bot.on('message', function (event) {
 			event.reply('Nice song!');
 			break;
 		case 'location':
-			console.log(event);
-			event.reply('That\'s a good location!');
-			//event.reply(JSON.stringify(event.message).substring(0, 20));
+			event.reply(['That\'s a good location!', 'Lat:' + event.message.latitude, 'Long:' + event.message.longitude]);
 			break;
 		case 'sticker':
 			event.reply({
@@ -123,7 +121,5 @@ bot.on('beacon', function (event) {
 });
 
 bot.listen('/linewebhook', process.env.PORT || 80, function () {
-	console.log(bot.verify('{"events":[{"type":"message","replyToken":"4893ef8b9d84453ab0f64ad94872b7c4","source":{"userId":"U6350b7606935db981705282747c82ee1","type":"user"},"timestamp":1476629005549,"message":{"type":"location","id":"5067231386180","title":"Location","address":"419 สุขุมวิท Khwaeng Khlong Tan, Khet Khlong Toei Krung Thep Maha Nakhon 10110 Thailand","latitude":13.724767,"longitude":100.565166}}]}',
-			   '+ju/xsSBG89ewzKmi7mWsnRCSexu3jRstL3sSTbX/fg='));
 	console.log('LineBot is running.');
 });
