@@ -81,6 +81,7 @@ bot.on('message', function (event) {
 			event.reply('Nice song!');
 			break;
 		case 'location':
+			console.err(event);
 			event.reply('That\'s a good location!');
 			//event.reply(JSON.stringify(event.message).substring(0, 20));
 			break;
