@@ -69,7 +69,7 @@ bot.on('message', function (event) {
 			event.reply('Nice song!');
 			break;
 		case 'location':
-			event.reply('That\'s a good location!');
+			event.reply('That\'s a good location! ' + event.message.latitude + ',' + event.message.longitude);
 			break;
 		case 'sticker':
 			event.reply({
