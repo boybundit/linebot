@@ -84,6 +84,30 @@ bot.on('message', function (event) {
 	}
 });
 
+bot.on('follow', function (event) {
+	event.reply('follow', event.source.userId);
+});
+
+bot.on('unfollow', function (event) {
+	event.reply('unfollow', event.source.userId);
+});
+
+bot.on('join', function (event) {
+	event.reply('join', event.source.groupId);
+});
+
+bot.on('leave', function (event) {
+	event.reply('leave', event.source.groupId);
+});
+
+bot.on('postback', function (event) {
+	event.reply('postback', event.postback.data);
+});
+
+bot.on('beacon', function (event) {
+	event.reply('beacon', event.beacon.hwid);
+});
+
 bot.listen('/linewebhook', process.env.PORT || 80, function () {
 	console.log('LineBot is running.');
 });
