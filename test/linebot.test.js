@@ -1,13 +1,20 @@
-const assert = require('assert');
 const linebot = require('../index.js');
+const assert = require('assert');
+const crypto = require('crypto');
+const fetch = require('node-fetch');
 
 const bot = linebot({
-	channelId: process.env.CHANNEL_ID,
-	channelSecret: process.env.CHANNEL_SECRET,
-	channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN
+	channelId: 1234567890,
+	channelSecret: 'secret',
+	channelAccessToken: 'token'
 });
 
 const req = {};
+req.headers = {
+	'Content-Type': 'application/json',
+	Authorization: 'Bearer token',
+	'X-Line-Signature': 'signature'
+};
 req.body = {
 	events: [{
 		replyToken: 'nHuyWiB7yP5Zw52FIkcQobQuGDXCTA',
@@ -25,7 +32,8 @@ req.body = {
 	}]
 };
 req.rawBody = JSON.stringify(req.body);
-
+req.headers['X-Line-Signature'] = crypto.createHmac('sha256', 'secret').update(req.rawBody).digest('base64');
+	
 describe('linebot', function () {
 	describe('#constructor()', function () {
 		it('should create a new LineBot instance.', function () {
@@ -37,12 +45,29 @@ describe('linebot', function () {
 	});
 	describe('#verify()', function () {
 		it('should return true when the signature is correct.', function () {
-			const res = bot.verify(req.rawBody, '/WxKL7xCHe0yh0+lGW5Bev10kxKIAHziPgLkkqXSdWE=');
+			const res = bot.verify(req.rawBody, req.headers['X-Line-Signature']);
 			assert.equal(res, true);
 		});
 		it('should return false when the signature is incorrect.', function () {
 			const res = bot.verify(req.rawBody, 'random signature');
 			assert.equal(res, false);
+		});
+	});
+	describe('#parse()', function () {
+		it('should raise message event.', function (done) {
+			const localBot = linebot({});
+			localBot.on('message', function (event) {
+				assert.equal(event, req.body.events[0]);
+				assert.equal(typeof event.reply, 'function');
+				if (event.source) {
+					assert.equal(typeof event.source.profile, 'function');
+				}
+				if (event.message) {
+					assert.equal(typeof event.message.content, 'function');
+				}
+				done();
+			});
+			localBot.parse(req.body);
 		});
 	});
 	describe('#reply()', function () {
@@ -107,6 +132,20 @@ describe('linebot', function () {
 		it('should expect 3 arguments.', function () {
 			assert.equal(typeof bot.listen, 'function');
 			assert.equal(bot.listen.length, 3);
+		});
+		it('should start http server.', function (done) {
+			bot.listen('/linewebhook', 3000, function () {
+				done();
+			});
+		});
+		it('should handle POST request and return empty object.', function (done) {
+			fetch('http://localhost:3000/linewebhook', { method: 'POST', headers: req.headers, body: JSON.stringify(req.body) }).then(function (res) {
+				assert.equal(res.status, 200);
+				return res.json();
+			}).then(function (data) {
+				assert.deepEqual(data, {});
+				done();
+			});
 		});
 	});
 });

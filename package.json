@@ -10,7 +10,7 @@
   "scripts": {
     "start": "node examples/demo.js",
     "pretest": "eslint index.js lib/**/*.js test/**/*.js",
-    "test": "mocha",
+    "test": "mocha --timeout 5000",
     "lint": "eslint index.js lib/**/*.js test/**/*.js"
   },
   "repository": {
