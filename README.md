@@ -101,6 +101,9 @@ bot.on('beacon',   function (event) { });
 ## LineBot.push(to, message)
 
 Send push message.
+
+`to` is a userId which can be saved from `event.source.userId` during the chat.
+
 `message` can be a string, a [Send message][send-message-url] object, or an array of [Send message][send-message-url] objects.
 
 ## LineBot.leaveGroup(groupId)
