@@ -32,7 +32,7 @@ req.body = {
 	}]
 };
 req.rawBody = JSON.stringify(req.body);
-req.headers['X-Line-Signature'] = crypto.createHmac('sha256', 'secret').update(req.rawBody).digest('base64');
+req.headers['X-Line-Signature'] = crypto.createHmac('sha256', 'secret').update(req.rawBody, 'utf8').digest('base64');
 
 describe('linebot', function () {
 	describe('#constructor()', function () {
