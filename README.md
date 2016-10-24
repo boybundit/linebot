@@ -102,7 +102,8 @@ bot.on('beacon',   function (event) { });
 
 Send push message.
 
-`to` is a userId which can be saved from `event.source.userId`
+`to` is a userId, or an array of userId.
+A userId can be saved from `event.source.userId`
 when added as a friend (follow event), or during the chat (message event).
 
 `message` can be a string, an array of string,
