@@ -75,6 +75,10 @@ describe('linebot', function () {
 			const res = bot.reply('reply token', 'message');
 			assert.equal(Promise, res.constructor);
 		});
+		it('should not crash if message is missing.', function () {
+			const res = bot.reply('reply token');
+			assert.equal(Promise, res.constructor);
+		});
 	});
 	describe('#push()', function () {
 		it('should return a promise.', function () {
