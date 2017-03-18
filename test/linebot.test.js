@@ -85,10 +85,16 @@ describe('linebot', function () {
 			const res = bot.push('to', 'message');
 			assert.equal(Promise, res.constructor);
 		});
-		it('should resolve multiple promises', function () {
+		it('should resolve multiple promises.', function () {
 			bot.push(['1', '2', '3'], 'message').then(function (results) {
 				assert.equal(results.length, 3);
 			});
+		});
+	});
+	describe('#multicast()', function () {
+		it('should return a promise.', function () {
+			const res = bot.push(['to'], 'message');
+			assert.equal(Promise, res.constructor);
 		});
 	});
 	describe('#getUserProfile()', function () {
