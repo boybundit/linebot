@@ -107,7 +107,18 @@ A userId can be saved from `event.source.userId`
 when added as a friend (follow event), or during the chat (message event).
 
 `message` can be a string, an array of string,
-a [Send message][send-message-url] object, 
+a [Send message][send-message-url] object,
+or an array of [Send message][send-message-url] objects.
+
+## LineBot.multicast(to, message)
+
+Send push message to multiple users (Max: 150 users).
+This is more efficient than `push` as it will make api call only once.
+
+`to` is an array of userId.
+
+`message` can be a string, an array of string,
+a [Send message][send-message-url] object,
 or an array of [Send message][send-message-url] objects.
 
 ## LineBot.leaveGroup(groupId)
@@ -123,7 +134,7 @@ Leave a room.
 Respond to the event.
 
 `message` can be a string, an array of string,
-a [Send message][send-message-url] object, 
+a [Send message][send-message-url] object,
 or an array of [Send message][send-message-url] objects.
 
 Return a [Promise][promise-url] object from [`node-fetch`][node-fetch-url] module.
@@ -164,10 +175,10 @@ event.reply({
 
 event.reply({
 	type: 'location',
-    title: 'my location',
-    address: '〒150-0002 東京都渋谷区渋谷２丁目２１−１',
-    latitude: 35.65910807942215,
-    longitude: 139.70372892916203
+	title: 'my location',
+	address: '〒150-0002 東京都渋谷区渋谷２丁目２１−１',
+	latitude: 35.65910807942215,
+	longitude: 139.70372892916203
 });
 
 event.reply({
