@@ -35,6 +35,9 @@ bot.on('message', function (event) {
 				case 'Push':
 					bot.push('U6350b7606935db981705282747c82ee1', ['Hey!', 'สวัสดี ' + String.fromCharCode(0xD83D, 0xDE01)]);
 					break;
+				case 'Multicast':
+					bot.push(['U6350b7606935db981705282747c82ee1', 'U6350b7606935db981705282747c82ee1'], 'Multicast!');
+					break;
 				case 'Confirm':
 					event.reply({
 						type: 'template',
