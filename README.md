@@ -6,9 +6,8 @@
   [![Build][travis-image]][travis-url]
 
 🤖 SDK for the LINE Messaging API for Node.js
-
-This is community SDK. It comes with built-in server for quick setup
-and provide convenient addon functions to webhook event object.
+- Come with built-in server for quick setup
+- Provide convenient addon functions to [event object](#event-object)
 
 # About LINE Messaging API
 
@@ -193,14 +192,20 @@ Return a [Promise][promise-url] object from [`node-fetch`][node-fetch-url] modul
 This is a shorthand for: `LineBot.reply(event.replyToken, message)`
 
 ```js
+// reply text message
 event.reply('Hello, world').then(function (data) {
   // success
 }).catch(function (error) {
   // error
 });
 
+// reply multiple text messages
+event.reply(['Hello, world 1', 'Hello, world 2']);
+
+// reply message object
 event.reply({ type: 'text', text: 'Hello, world' });
 
+// reply multiple message object
 event.reply([
   { type: 'text', text: 'Hello, world 1' },
   { type: 'text', text: 'Hello, world 2' }
