@@ -7,6 +7,9 @@
 
 🤖 SDK for the LINE Messaging API for Node.js
 
+This is community SDK. It comes with built-in server for quick setup
+and provide convenient addon functions to webhook event object.
+
 # About LINE Messaging API
 
 Please refer to the official API documents for details.
