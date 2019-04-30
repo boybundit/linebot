@@ -49,6 +49,12 @@ nock(line)
   })
   .reply(200, {});
 
+nock(line)
+  .post('/message/broadcast', {
+    messages: [{ type: 'text', text: 'message' }]
+  })
+  .reply(200, {});
+
 const content = crypto.randomBytes(16);
 nock(line).get('/message/messageId/content').reply(200, content);
 
@@ -94,6 +100,14 @@ describe('Message', function() {
   describe('#multicast()', function() {
     it('should return an empty object.', function() {
       return bot.multicast([userId, userId2, userId3], 'message').then((result) => {
+        assert.deepEqual(result, {});
+      });
+    });
+  });
+
+  describe('#broadcast()', function() {
+    it('should return an empty object.', function() {
+      return bot.broadcast('message').then((result) => {
         assert.deepEqual(result, {});
       });
     });

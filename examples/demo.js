@@ -46,6 +46,9 @@ bot.on('message', function (event) {
         case 'Multicast':
           bot.push(['U17448c796a01b715d293c34810985a4c', 'Cba71ba25dafbd6a1472c655fe22979e2'], 'Multicast!');
           break;
+        case 'Broadcast':
+          bot.broadcast('Broadcast!');
+          break;
         case 'Confirm':
           event.reply({
             type: 'template',
