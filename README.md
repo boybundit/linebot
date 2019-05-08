@@ -134,6 +134,15 @@ This is more efficient than `push` as it will make api call only once.
 a [Send message][send-message-url] object,
 or an array of [Send message][send-message-url] objects.
 
+### LineBot.broadcast(to, message)
+
+Send push message to all users.
+This is more efficient than `push` as it will make api call only once.
+
+`message` can be a string, an array of string,
+a [Send message][send-message-url] object,
+or an array of [Send message][send-message-url] objects.
+
 ### LineBot.getMessageContent(messageId)
 
 Get image, video, and audio data sent by users as a [Buffer][buffer-url] object.
