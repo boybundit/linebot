@@ -134,7 +134,7 @@ This is more efficient than `push` as it will make api call only once.
 a [Send message][send-message-url] object,
 or an array of [Send message][send-message-url] objects.
 
-### LineBot.broadcast(to, message)
+### LineBot.broadcast(message)
 
 Send push message to all users.
 This is more efficient than `push` as it will make api call only once.
