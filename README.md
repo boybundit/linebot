@@ -96,13 +96,15 @@ Process incoming webhook request, and raise an event.
 
 Raised when a [Webhook event][webhook-event-url] is received.
 ```js
-bot.on('message',  function (event) { });
-bot.on('follow',   function (event) { });
-bot.on('unfollow', function (event) { });
-bot.on('join',     function (event) { });
-bot.on('leave',    function (event) { });
-bot.on('postback', function (event) { });
-bot.on('beacon',   function (event) { });
+bot.on('message',      function (event) { });
+bot.on('follow',       function (event) { });
+bot.on('unfollow',     function (event) { });
+bot.on('join',         function (event) { });
+bot.on('leave',        function (event) { });
+bot.on('memberJoined', function (event) { });
+bot.on('memberLeft',   function (event) { });
+bot.on('postback',     function (event) { });
+bot.on('beacon',       function (event) { });
 ```
 
 ### LineBot.reply(replyToken, message)
