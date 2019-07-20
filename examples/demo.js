@@ -122,11 +122,21 @@ bot.on('unfollow', function (event) {
 });
 
 bot.on('join', function (event) {
-  event.reply('join: ' + event.source.groupId);
+  if(event.source.groupId) {
+    event.reply('join group: ' + event.source.groupId);
+  }
+  if(event.source.roomId) {
+    event.reply('join room: ' + event.source.roomId);
+  }
 });
 
 bot.on('leave', function (event) {
-  event.reply('leave: ' + event.source.groupId);
+  if(event.source.groupId) {
+    console.log('leave group: ' + event.source.groupId);
+  }
+  if(event.source.roomId) {
+    console.log('leave room: ' + event.source.roomId);
+  }
 });
 
 bot.on('memberJoined', function (event) {
