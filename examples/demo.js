@@ -111,6 +111,9 @@ bot.on('message', function (event) {
       event.reply('Unknow message: ' + JSON.stringify(event));
       break;
   }
+  bot.getQuota().then((result) => {
+    console.log(result);
+  });
 });
 
 bot.on('follow', function (event) {
