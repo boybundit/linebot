@@ -107,11 +107,11 @@ bot.on('postback',     function (event) { });
 bot.on('beacon',       function (event) { });
 ```
 
-### LineBot.reply(replyToken, message)
+### LineBot.reply(replyToken, message, emojis = null)
 
 Reply a message.
 
-See: [Event.reply(message)](#eventreplymessage)
+See: [Event.reply(message, emojis = null)](#eventreplymessage)
 
 ### LineBot.push(to, message)
 
@@ -190,7 +190,7 @@ Leave a room.
 Provide convenient shorthands to call LineBot's functions
 which require parameter from a source event object.
 
-### Event.reply(message)
+### Event.reply(message, emojis = null)
 
 Respond to the event.
 
@@ -198,9 +198,11 @@ Respond to the event.
 a [Send message][send-message-url] object,
 or an array of [Send message][send-message-url] objects.
 
+`emojis` is a arrays of [LINE emoji][emoji-list-url] objects.
+
 Return a [Promise][promise-url] object from [`node-fetch`][node-fetch-url] module.
 
-This is a shorthand for: `LineBot.reply(event.replyToken, message)`
+This is a shorthand for: `LineBot.reply(event.replyToken, message, emojis)`
 
 ```js
 // reply text message
@@ -209,6 +211,23 @@ event.reply('Hello, world').then(function (data) {
 }).catch(function (error) {
   // error
 });
+
+// reply text message with emoji
+event.reply(
+  '$ LINE emoji $',
+  [
+    {
+      'index': 0,
+      'productId': '5ac1bfd5040ab15980c9b435',
+      'emojiId': '001'
+    },
+    {
+      'index': 13,
+      'productId': '5ac1bfd5040ab15980c9b435',
+      'emojiId': '002'
+    }
+  ]
+);
 
 // reply multiple text messages
 event.reply(['Hello, world 1', 'Hello, world 2']);
@@ -404,6 +423,7 @@ event.message.content().then(function (content) {
 [express-url]: http://expressjs.com
 [webhook-event-url]: https://developers.line.me/en/docs/messaging-api/reference/#webhooks
 [send-message-url]: https://developers.line.me/en/docs/messaging-api/reference/#message-objects
+[emoji-list-url]: https://d.line-scdn.net/r/devcenter/sendable_line_emoji_list.pdf
 [promise-url]: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [node-fetch-url]: https://github.com/bitinn/node-fetch
 [buffer-url]: https://nodejs.org/api/buffer.html
