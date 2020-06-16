@@ -21,6 +21,23 @@ bot.on('message', function (event) {
             return event.reply(JSON.stringify(member));
           });
           break;
+        case 'Emoji':
+          event.reply(
+            '$ LINE emoji $',
+            [
+              {
+                'index': 0,
+                'productId': '5ac1bfd5040ab15980c9b435',
+                'emojiId': '001'
+              },
+              {
+                'index': 13,
+                'productId': '5ac1bfd5040ab15980c9b435',
+                'emojiId': '002'
+              }
+            ]
+          );
+          break;
         case 'Picture':
           event.reply({
             type: 'image',
