@@ -12,8 +12,8 @@
 # About LINE Messaging API
 
 Please refer to the official API documents for details.
-- Developer Documents - https://developers.line.me/en/docs/messaging-api/overview
-- API Reference - https://developers.line.me/en/docs/messaging-api/reference
+- Developer Documents - https://developers.line.biz/en/docs/
+- API Reference - https://developers.line.biz/en/reference/messaging-api/
 
 # Installation
 
@@ -402,8 +402,8 @@ event.message.content().then(function (content) {
   [MIT](LICENSE)
 
 [express-url]: http://expressjs.com
-[webhook-event-url]: https://developers.line.me/en/docs/messaging-api/reference/#webhooks
-[send-message-url]: https://developers.line.me/en/docs/messaging-api/reference/#message-objects
+[webhook-event-url]: https://developers.line.biz/en/reference/messaging-api/#webhooks
+[send-message-url]: https://developers.line.biz/en/reference/messaging-api/#message-objects
 [promise-url]: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [node-fetch-url]: https://github.com/bitinn/node-fetch
 [buffer-url]: https://nodejs.org/api/buffer.html
