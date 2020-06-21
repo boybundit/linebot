@@ -106,13 +106,17 @@ bot.on('message', function (event) {
         stickerId: 1
       });
       break;
+    case 'quota':
+      bot.getQuota().then((result) => {
+        console.log(result);
+        event.reply('Quota: ' + result.value);
+      });
+      break;
     default:
-      event.reply('Unknow message: ' + JSON.stringify(event));
+      event.reply('Unknown message: ' + JSON.stringify(event));
       break;
   }
-  bot.getQuota().then((result) => {
-    console.log(result);
-  });
+
 });
 
 bot.on('follow', function (event) {
