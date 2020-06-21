@@ -70,19 +70,21 @@ bot.on('message', function (event) {
           break;
         case 'Multiple':
           return event.reply(['Line 1', 'Line 2', 'Line 3', 'Line 4', 'Line 5']);
+        case 'Total followers':
+          bot.getTotalFollowers().then((result) => {
+            event.reply('Total followers: ' + result.followers);
+          });
+          break;
         case 'Quota':
           bot.getQuota().then((result) => {
-            console.log(result);
             event.reply('Quota: ' + result.value);
           });
           break;
         case 'Total reply':
           bot.getTotalReplyMessages().then((result) => {
-            console.log(result);
             event.reply('Total reply messages: ' + result.success);
           });
           break;
-
         case 'Version':
           event.reply('linebot@' + require('../package.json').version);
           break;
