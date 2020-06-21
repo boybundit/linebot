@@ -70,6 +70,12 @@ bot.on('message', function (event) {
           break;
         case 'Multiple':
           return event.reply(['Line 1', 'Line 2', 'Line 3', 'Line 4', 'Line 5']);
+        case 'Quota':
+          bot.getQuota().then((result) => {
+            console.log(result);
+            event.reply('Quota: ' + result.value);
+          });
+          break;
         case 'Version':
           event.reply('linebot@' + require('../package.json').version);
           break;
@@ -106,17 +112,10 @@ bot.on('message', function (event) {
         stickerId: 1
       });
       break;
-    case 'quota':
-      bot.getQuota().then((result) => {
-        console.log(result);
-        event.reply('Quota: ' + result.value);
-      });
-      break;
     default:
       event.reply('Unknown message: ' + JSON.stringify(event));
       break;
   }
-
 });
 
 bot.on('follow', function (event) {
