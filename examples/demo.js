@@ -76,6 +76,13 @@ bot.on('message', function (event) {
             event.reply('Quota: ' + result.value);
           });
           break;
+        case 'Total reply':
+          bot.getTotalReplyMessages('20200621').then((result) => {
+            console.log(result);
+            event.reply('Total reply messages: ' + result.success);
+          });
+          break;
+
         case 'Version':
           event.reply('linebot@' + require('../package.json').version);
           break;
