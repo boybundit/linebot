@@ -77,11 +77,7 @@ bot.on('message', function (event) {
           });
           break;
         case 'Total reply':
-          const date = new Date();
-          date.setDate(date.getDate() - 1);
-          const dateString = date.toLocaleString("en-US", {timeZone: "Asia/Tokyo", day: "2-digit", month:"2-digit", year:"numeric"});
-          const yesterday = dateString.substr(5, 4) + dateString.substr(0, 2) + dateString.substr(2, 2);
-          bot.getTotalReplyMessages(yesterday).then((result) => {
+          bot.getTotalReplyMessages().then((result) => {
             console.log(result);
             event.reply('Total reply messages: ' + result.success);
           });
