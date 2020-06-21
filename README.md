@@ -189,7 +189,26 @@ Leave a room.
 
 Get the number of users who have added this linebot on or before a specified date.
 
+Default date is yesterday (UTC+9).
+
 See: [Get number of followers](https://developers.line.biz/en/reference/messaging-api/#get-number-of-followers)
+
+### LineBot.getQuota()
+
+Get the number of messages quota in the current month.
+
+See: [Get the target limit for additional messages](https://developers.line.biz/en/reference/messaging-api/#get-quota)
+
+### LineBot.getTotalReplyMessages(date)
+### LineBot.getTotalPushMessages(date)
+### LineBot.getTotalBroadcastMessages(date)
+### LineBot.getTotalMulticastMessages(date)
+
+Get the number of messages that this linebot reply, push, broadcast, or multicast.
+
+Default date is yesterday (UTC+9).
+
+See: [Get number of sent reply messages](https://developers.line.biz/en/reference/messaging-api/#get-number-of-reply-messages)
 
 ## Event object
 
