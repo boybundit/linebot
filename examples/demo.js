@@ -70,7 +70,6 @@ bot.on('message', function (event) {
           break;
         case 'Multiple':
           return event.reply(['Line 1', 'Line 2', 'Line 3', 'Line 4', 'Line 5']);
-          break;
         case 'Version':
           event.reply('linebot@' + require('../package.json').version);
           break;
@@ -140,7 +139,7 @@ bot.on('leave', function (event) {
 });
 
 bot.on('memberJoined', function (event) {
-  event.source.profile().then(function (profile) {
+  event.source.profile().then(function (/*profile*/) {
     if(event.source.type === 'group') {
       event.reply('memberJoined: Welcome to the group.');
     }
@@ -150,7 +149,7 @@ bot.on('memberJoined', function (event) {
   });
 });
 
-bot.on('memberLeft', function (event) {
+bot.on('memberLeft', function (/*event*/) {
   console.log('memberLeft: Goodbye.');
 });
 
