@@ -185,6 +185,12 @@ See: [Event.source.member()](#eventsourcemember)
 
 Leave a room.
 
+### LineBot.getTotalFollowers(date)
+
+Get the number of users who have added this linebot on or before a specified date.
+
+See: [Get number of followers](https://developers.line.biz/en/reference/messaging-api/#get-number-of-followers)
+
 ## Event object
 
 Provide convenient shorthands to call LineBot's functions
