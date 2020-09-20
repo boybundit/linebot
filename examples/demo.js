@@ -70,6 +70,20 @@ bot.on('message', function (event) {
           break;
         case 'Multiple':
           return event.reply(['Line 1', 'Line 2', 'Line 3', 'Line 4', 'Line 5']);
+        case 'Total followers':
+          bot.getTotalFollowers().then((result) => {
+            event.reply('Total followers: ' + result.followers);
+          });
+          break;
+        case 'Quota':
+          bot.getQuota().then((result) => {
+            event.reply('Quota: ' + result.value);
+          });
+          break;
+        case 'Total reply':
+          bot.getTotalReplyMessages().then((result) => {
+            event.reply('Total reply messages: ' + result.success);
+          });
           break;
         case 'Version':
           event.reply('linebot@' + require('../package.json').version);
@@ -108,7 +122,7 @@ bot.on('message', function (event) {
       });
       break;
     default:
-      event.reply('Unknow message: ' + JSON.stringify(event));
+      event.reply('Unknown message: ' + JSON.stringify(event));
       break;
   }
 });
@@ -140,7 +154,7 @@ bot.on('leave', function (event) {
 });
 
 bot.on('memberJoined', function (event) {
-  event.source.profile().then(function (profile) {
+  event.source.profile().then(function (/*profile*/) {
     if(event.source.type === 'group') {
       event.reply('memberJoined: Welcome to the group.');
     }
@@ -150,7 +164,7 @@ bot.on('memberJoined', function (event) {
   });
 });
 
-bot.on('memberLeft', function (event) {
+bot.on('memberLeft', function (/*event*/) {
   console.log('memberLeft: Goodbye.');
 });
 

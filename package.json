@@ -1,6 +1,6 @@
 {
   "name": "linebot",
-  "version": "1.5.3",
+  "version": "1.6.0",
   "description": "Node.js SDK for the LINE Messaging API",
   "main": "index.js",
   "files": [
@@ -11,7 +11,7 @@
     "start": "node examples/demo.js",
     "pretest": "eslint index.js lib/**/*.js test/**/*.js",
     "test": "mocha --timeout 5000 --exit",
-    "lint": "eslint index.js lib/**/*.js test/**/*.js"
+    "lint": "eslint index.js lib/**/*.js test/**/*.js examples/**/*.js"
   },
   "repository": {
     "type": "git",
@@ -33,11 +33,11 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "debug": "^4.1.1",
-    "node-fetch": "^2.5.0"
+    "node-fetch": "^2.6.0"
   },
   "devDependencies": {
-    "eslint": "^5.16.0",
-    "mocha": "^6.1.4",
-    "nock": "^10.0.6"
+    "eslint": "^7.3.0",
+    "mocha": "^8.0.1",
+    "nock": "^12.0.3"
   }
 }
