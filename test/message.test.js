@@ -8,6 +8,7 @@ function randomUserId() {
 }
 
 const line = 'https://api.line.me/v2/bot';
+const lineData = 'https://api-data.line.me/v2/bot';
 const userId = randomUserId();
 const userId2 = randomUserId();
 const userId3 = randomUserId();
@@ -56,7 +57,7 @@ nock(line)
   .reply(200, {});
 
 const content = crypto.randomBytes(16);
-nock(line).get('/message/messageId/content').reply(200, content);
+nock(lineData).get('/message/messageId/content').reply(200, content);
 
 const bot = linebot({
   channelId: 1234567890,
