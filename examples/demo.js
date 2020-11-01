@@ -96,6 +96,16 @@ bot.on('message', function (event) {
               'picUrl : ' + result.pictureUrl);
           });
           break;
+        case 'GetRoomMembersCount':
+          bot.getRoomMembersCount('Bba70ba25dafbd6a1472c655fe22970c1').then((result) => {
+            event.reply('Members Count: ' + result.count);
+          });
+          break;
+        case 'GetGroupMembersCount':
+          bot.getGroupMembersCount('Cba71ba25dafbd6a1472c655fe22979e2').then((result) => {
+            event.reply('Members Count: ' + result.count);
+          });
+          break;  
         default:
           event.reply(event.message.text).then(function (data) {
             console.log('Success', data);

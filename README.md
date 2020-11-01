@@ -157,6 +157,10 @@ Get user profile information of the user.
 
 See: [Event.source.profile()](#eventsourceprofile)
 
+### LineBot.getGroupProfile(groupId)
+
+Get a group profile.
+
 ### LineBot.getGroupMemberProfile(groupId, userId)
 
 Get user profile of a member in a group.
@@ -166,6 +170,10 @@ Get user profile of a member in a group.
 Get userId of all members in a group.
 
 See: [Event.source.member()](#eventsourcemember)
+
+### LineBot.getGroupMembersCount(groupId)
+
+Get number of users in a group.
 
 ### LineBot.leaveGroup(groupId)
 
@@ -180,6 +188,10 @@ Get user profile of a member in a chat room.
 Get userId of all members in a chat room.
 
 See: [Event.source.member()](#eventsourcemember)
+
+### LineBot.getRoomMembersCount(roomId)
+
+Get number of users in a room.
 
 ### LineBot.leaveRoom(roomId)
 
@@ -209,10 +221,6 @@ Get the number of messages that this linebot reply, push, broadcast, or multicas
 Default date is yesterday (UTC+9).
 
 See: [Get number of sent reply messages](https://developers.line.biz/en/reference/messaging-api/#get-number-of-reply-messages)
-
-### LineBot.getGroupProfile(groupId)
-
-Get group profile information of a group.
 
 ## Event object
 
