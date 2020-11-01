@@ -210,6 +210,10 @@ Default date is yesterday (UTC+9).
 
 See: [Get number of sent reply messages](https://developers.line.biz/en/reference/messaging-api/#get-number-of-reply-messages)
 
+### LineBot.getGroupProfile(groupId)
+
+Get group profile information of a group.
+
 ## Event object
 
 Provide convenient shorthands to call LineBot's functions
@@ -387,6 +391,7 @@ Get user profile information of the sender.
 
 This is a shorthand for:
   - `LineBot.getUserProfile(event.source.userId)` if it is 1:1 chat
+  - `LineBot.getGroupProfile(event.source.groupId)` if bot is in a group
   - `LineBot.getGroupMemberProfile(event.source.groupId, event.source.userId)` if bot is in a group
   - `LineBot.getRoomMemberProfile(event.source.roomId, event.source.userId)` if bot is in a chat room
 

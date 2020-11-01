@@ -8,6 +8,7 @@ const bot = linebot({
 });
 
 bot.on('message', function (event) {
+  console.log(event.message.text);
   switch (event.message.type) {
     case 'text':
       switch (event.message.text) {
@@ -15,7 +16,7 @@ bot.on('message', function (event) {
           event.source.profile().then(function (profile) {
             return event.reply('Hello ' + profile.displayName + ' ' + profile.userId);
           });
-          break;
+          break; 
         case 'Member':
           event.source.member().then(function (member) {
             return event.reply(JSON.stringify(member));
@@ -87,6 +88,13 @@ bot.on('message', function (event) {
           break;
         case 'Version':
           event.reply('linebot@' + require('../package.json').version);
+          break;
+        case 'GetGroupProfile':
+          bot.getGroupProfile('Cba71ba25dafbd6a1472c655fe22979e2').then((result) => {
+            event.reply('This is the group(' + result.groupName + ').\n' + 
+              'groupID : ' + result.groupId + '\n' +
+              'picUrl : ' + result.pictureUrl);
+          });
           break;
         default:
           event.reply(event.message.text).then(function (data) {
@@ -179,5 +187,5 @@ bot.on('beacon', function (event) {
 });
 
 bot.listen('/linewebhook', process.env.PORT || 80, function () {
-  console.log('LineBot is running.');
+  console.log('LineBot is running. Port : ' + (process.env.PORT || 80));
 });
