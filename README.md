@@ -12,8 +12,8 @@
 # About LINE Messaging API
 
 Please refer to the official API documents for details.
-- Developer Documents - https://developers.line.me/en/docs/messaging-api/overview
-- API Reference - https://developers.line.me/en/docs/messaging-api/reference
+- Developer Documents - https://developers.line.biz/en/docs/
+- API Reference - https://developers.line.biz/en/reference/messaging-api/
 
 # Installation
 
@@ -96,13 +96,15 @@ Process incoming webhook request, and raise an event.
 
 Raised when a [Webhook event][webhook-event-url] is received.
 ```js
-bot.on('message',  function (event) { });
-bot.on('follow',   function (event) { });
-bot.on('unfollow', function (event) { });
-bot.on('join',     function (event) { });
-bot.on('leave',    function (event) { });
-bot.on('postback', function (event) { });
-bot.on('beacon',   function (event) { });
+bot.on('message',      function (event) { });
+bot.on('follow',       function (event) { });
+bot.on('unfollow',     function (event) { });
+bot.on('join',         function (event) { });
+bot.on('leave',        function (event) { });
+bot.on('memberJoined', function (event) { });
+bot.on('memberLeft',   function (event) { });
+bot.on('postback',     function (event) { });
+bot.on('beacon',       function (event) { });
 ```
 
 ### LineBot.reply(replyToken, message)
@@ -182,6 +184,31 @@ See: [Event.source.member()](#eventsourcemember)
 ### LineBot.leaveRoom(roomId)
 
 Leave a room.
+
+### LineBot.getTotalFollowers(date)
+
+Get the number of users who have added this linebot on or before a specified date.
+
+Default date is yesterday (UTC+9).
+
+See: [Get number of followers](https://developers.line.biz/en/reference/messaging-api/#get-number-of-followers)
+
+### LineBot.getQuota()
+
+Get the number of messages quota in the current month.
+
+See: [Get the target limit for additional messages](https://developers.line.biz/en/reference/messaging-api/#get-quota)
+
+### LineBot.getTotalReplyMessages(date)
+### LineBot.getTotalPushMessages(date)
+### LineBot.getTotalBroadcastMessages(date)
+### LineBot.getTotalMulticastMessages(date)
+
+Get the number of messages that this linebot reply, push, broadcast, or multicast.
+
+Default date is yesterday (UTC+9).
+
+See: [Get number of sent reply messages](https://developers.line.biz/en/reference/messaging-api/#get-number-of-reply-messages)
 
 ## Event object
 
@@ -400,8 +427,8 @@ event.message.content().then(function (content) {
   [MIT](LICENSE)
 
 [express-url]: http://expressjs.com
-[webhook-event-url]: https://developers.line.me/en/docs/messaging-api/reference/#webhooks
-[send-message-url]: https://developers.line.me/en/docs/messaging-api/reference/#message-objects
+[webhook-event-url]: https://developers.line.biz/en/reference/messaging-api/#webhooks
+[send-message-url]: https://developers.line.biz/en/reference/messaging-api/#message-objects
 [promise-url]: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [node-fetch-url]: https://github.com/bitinn/node-fetch
 [buffer-url]: https://nodejs.org/api/buffer.html
