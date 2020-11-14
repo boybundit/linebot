@@ -154,18 +154,27 @@ bot.on('leave', function (event) {
 });
 
 bot.on('memberJoined', function (event) {
-  event.source.profile().then(function (/*profile*/) {
+  event.joined.profiles().then(function (profiles) {
     if(event.source.type === 'group') {
       event.reply('memberJoined: Welcome to the group.');
     }
     if(event.source.type === 'room') {
       event.reply('memberJoined: Welcome to the room.');
     }
+    console.log(profiles);
   });
 });
 
-bot.on('memberLeft', function (/*event*/) {
-  console.log('memberLeft: Goodbye.');
+bot.on('memberLeft', function (event) {
+  event.left.profiles().then(function (profiles) {
+    if(event.source.type === 'group') {
+      console.log('memberLeft: Left the group, goodbye.');
+    }
+    if(event.source.type === 'room') {
+      console.log('memberLeft: Left the room, goodbye.');
+    }
+    console.log(profiles);
+  });
 });
 
 bot.on('postback', function (event) {
