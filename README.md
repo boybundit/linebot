@@ -381,6 +381,33 @@ event.reply({
 });
 ```
 
+### Event.joined.profiles()
+
+Get user profiles information of the sender, when a user joins a group or room.
+
+This is a shorthand for:
+  - `LineBot.getGroupMemberProfile(event.source.groupId, event.source.userId)` if bot is in a group
+  - `LineBot.getRoomMemberProfile(event.source.roomId, event.source.userId)` if bot is in a chat room
+
+```js
+event.joined.profiles().then(function (profiles) {
+  console.log(profiles);
+});
+```
+
+### Event.left.profiles()
+
+Get user profiles information of the sender, when a user leave a group or room.
+
+This is a shorthand for:
+  - `LineBot.getUserProfile(event.source.userId)` if it is 1:1 chat
+
+```js
+event.left.profiles().then(function (profiles) {
+  console.log(profiles);
+});
+```
+
 ### Event.source.profile()
 
 Get user profile information of the sender.
