@@ -1,11 +1,18 @@
 const linebot = require('../index.js');
 
 const bot = linebot({
-  channelId: process.env.CHANNEL_ID,
-  channelSecret: process.env.CHANNEL_SECRET,
-  channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN,
+  channelId: process.env.CHANNEL_ID_FIRE,
+  channelSecret: process.env.CHANNEL_SECRET_FIRE,
+  channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN_FIRE,
   verify: true // default=true
 });
+
+// const bot = linebot({
+//   channelId: process.env.CHANNEL_ID,
+//   channelSecret: process.env.CHANNEL_SECRET,
+//   channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN,
+//   verify: true // default=true
+// });
 
 bot.on('message', function (event) {
   console.log(event.message.text);
