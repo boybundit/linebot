@@ -7,6 +7,9 @@ const bot = linebot({
   verify: true // default=true
 });
 
+console.log(process.env.CHANNEL_ID_FIRE);
+console.log(process.env.CHANNEL_SECRET_FIRE);
+console.log(process.env.CHANNEL_ACCESS_TOKEN_FIRE);
 // const bot = linebot({
 //   channelId: process.env.CHANNEL_ID,
 //   channelSecret: process.env.CHANNEL_SECRET,
@@ -179,21 +182,45 @@ bot.on('leave', function (event) {
 });
 
 bot.on('memberJoined', function (event) {
-  event.source.profile().then(function (profile) {
+  event.joined.profiles().then(function (profiles) {
     if(event.source.type === 'group') {
-      event.reply('memberJoined: ' + profile.displayName + '\n' +
-        'groupId: ' + event.source.groupId + '  userId: ' + event.joined.members[0].userId);
+      event.reply('memberJoined: Welcome to the group.');
     }
     if(event.source.type === 'room') {
-      event.reply('memberJoined: ' + profile.displayName + '\n' +
-        'roomId: ' + event.source.roomId + '  userId: ' + event.joined.members[0].userId);
+      event.reply('memberJoined: Welcome to the room.');
     }
+    console.log(profiles);
   });
 });
 
 bot.on('memberLeft', function (event) {
-  console.log('memberLeft: ' + event.left.members[0].userId);
+  event.left.profiles().then(function (profiles) {
+    if(event.source.type === 'group') {
+      console.log('memberLeft: Left the group, goodbye.');
+    }
+    if(event.source.type === 'room') {
+      console.log('memberLeft: Left the room, goodbye.');
+    }
+    console.log(profiles);
+  });
 });
+
+// bot.on('memberJoined', function (event) {
+//   event.source.profile().then(function (profile) {
+//     if(event.source.type === 'group') {
+//       event.reply('memberJoined: ' + profile.displayName + '\n' +
+//         'groupId: ' + event.source.groupId + '  userId: ' + event.joined.members[0].userId);
+//     }
+//     if(event.source.type === 'room') {
+//       event.reply('memberJoined: ' + profile.displayName + '\n' +
+//         'roomId: ' + event.source.roomId + '  userId: ' + event.joined.members[0].userId);
+//     }
+//   });
+// });
+
+// bot.on('memberLeft', function (event) {
+//   console.log('memberLeft: ' + event.left.members[0].userId);
+// });
 
 bot.on('postback', function (event) {
   event.reply('postback: ' + event.postback.data);
@@ -203,6 +230,10 @@ bot.on('beacon', function (event) {
   event.reply('beacon: ' + event.beacon.hwid);
 });
 
-bot.listen('/linewebhook', process.env.PORT || 80, function () {
-  console.log('LineBot is running. Port : ' + (process.env.PORT || 80));
+bot.listen('/webhook', process.env.PORT_FIRE || 80, function () {
+  console.log('LineBot is running. Port : ' + (process.env.PORT_FIRE || 80));
 });
+
+// bot.listen('/linewebhook', process.env.PORT || 80, function () {
+//   console.log('LineBot is running. Port : ' + (process.env.PORT || 80));
+// });
