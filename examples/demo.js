@@ -91,6 +91,11 @@ bot.on('message', function (event) {
                   event.reply('Quota: ' + result.value);
                });
                break;
+            case 'getTotalSentMessagesThisMonth':
+               bot.getTotalSentMessagesThisMonth().then((result) => {
+                  event.reply('totalUsage: ' + result.totalUsage);
+               });
+               break;
             case 'Total reply':
                bot.getTotalReplyMessages().then((result) => {
                   event.reply('Total reply messages: ' + result.success);
@@ -204,23 +209,6 @@ bot.on('memberLeft', function (event) {
       console.log(profiles);
    });
 });
-
-// bot.on('memberJoined', function (event) {
-//   event.source.profile().then(function (profile) {
-//     if(event.source.type === 'group') {
-//       event.reply('memberJoined: ' + profile.displayName + '\n' +
-//         'groupId: ' + event.source.groupId + '  userId: ' + event.joined.members[0].userId);
-//     }
-//     if(event.source.type === 'room') {
-//       event.reply('memberJoined: ' + profile.displayName + '\n' +
-//         'roomId: ' + event.source.roomId + '  userId: ' + event.joined.members[0].userId);
-//     }
-//   });
-// });
-
-// bot.on('memberLeft', function (event) {
-//   console.log('memberLeft: ' + event.left.members[0].userId);
-// });
 
 bot.on('postback', function (event) {
    event.reply('postback: ' + event.postback.data);
