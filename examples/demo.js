@@ -142,6 +142,11 @@ bot.on('message', function (event) {
                   event.reply('Members Count: ' + result.count);
                });
                break;
+            case 'getIssueLinkToken':
+               bot.getIssueLinkToken('U480e5cd6a126659e6b07b95661882ee1').then((result) => {
+                  event.reply(JSON.stringify(result));
+               });
+               break;
             default:
                event.reply(event.message.text).then(function (data) {
                   console.log('Success', data);
