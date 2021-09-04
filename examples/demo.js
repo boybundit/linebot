@@ -81,9 +81,14 @@ bot.on('message', function (event) {
                break;
             case 'Multiple':
                return event.reply(['Line 1', 'Line 2', 'Line 3', 'Line 4', 'Line 5']);
+            case 'getTotalMessagesInsight':
+               bot.getTotalMessagesInsight().then((result) => {
+                  event.reply(JSON.stringify(result));
+               });
+               break;
             case 'Total followers':
                bot.getTotalFollowers().then((result) => {
-                  event.reply('Total followers: ' + result.followers);
+                  event.reply(JSON.stringify(result));
                });
                break;
             case 'Quota':
