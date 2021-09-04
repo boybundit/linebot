@@ -91,6 +91,13 @@ bot.on('message', function (event) {
                   event.reply(JSON.stringify(result));
                });
                break;
+            
+            case 'getFriendDemographicsInsight':
+               bot.getFriendDemographicsInsight().then((result) => {
+                  event.reply(JSON.stringify(result));
+               });
+               break;
+
             case 'Total followers':
                bot.getTotalFollowers().then((result) => {
                   event.reply(JSON.stringify(result));
