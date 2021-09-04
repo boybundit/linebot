@@ -91,13 +91,11 @@ bot.on('message', function (event) {
                   event.reply(JSON.stringify(result));
                });
                break;
-            
             case 'getFriendDemographicsInsight':
                bot.getFriendDemographicsInsight().then((result) => {
                   event.reply(JSON.stringify(result));
                });
                break;
-
             case 'Total followers':
                bot.getTotalFollowers().then((result) => {
                   event.reply(JSON.stringify(result));
@@ -120,6 +118,12 @@ bot.on('message', function (event) {
                break;
             case 'Version':
                event.reply('linebot@' + require('../package.json').version);
+               break;
+            
+            case 'getBotInfo':
+               bot.getBotInfo().then((result) => {
+                  event.reply(JSON.stringify(result));
+               });
                break;
             case 'GetGroupProfile':
                bot.getGroupProfile('Cba71ba25dafbd6a1472c655fe22979e2').then((result) => {
